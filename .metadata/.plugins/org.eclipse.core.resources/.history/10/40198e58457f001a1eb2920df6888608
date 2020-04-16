@@ -1,0 +1,14 @@
+package ejbholidaybookingutilsapp;
+
+import org.apache.log4j.Logger;
+
+public class LoggerFactory {
+	private static final Logger logFactory = null;
+	
+	public LoggerFactory(Class name) {
+		logFactory = Logger.getLogger(name);
+	}
+	
+	
+
+}

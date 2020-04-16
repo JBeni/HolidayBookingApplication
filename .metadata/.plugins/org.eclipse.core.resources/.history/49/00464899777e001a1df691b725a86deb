@@ -1,0 +1,10 @@
+package ejbholidaybookingapp;
+
+import java.util.List;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface HolidayRemainingAppBeanRemote {
+	List<HolidayRemainingDTO> getAllHolidayRemaining();
+}

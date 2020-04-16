@@ -1,0 +1,59 @@
+package holidaybookingappclient;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
+import entityclasses.EmployeeDTO;
+
+@WebServlet("/EmployeesServlet")
+public class EmployeesServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    @EJB
+	private HolidaySystemAppBeanRemote holidaySystemAppBean;
+
+    public EmployeesServlet() {
+        super();
+    }
+
+	/* https://stackoverflow.com/questions/4600034/calculate-number-of-weekdays-between-two-dates-in-java */
+    protected int getWorkingDaysBetweenTwoDates(Date startDate, Date endDate) {
+	    Calendar startCal = Calendar.getInstance();
+	    startCal.setTime(startDate);
+	    Calendar endCal = Calendar.getInstance();
+	    endCal.setTime(endDate);
+	    int workDays = 0;
+
+	    do {
+	        if (startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+	            ++workDays;
+	        }
+	    } while (startCal.getTimeInMillis() <= endCal.getTimeInMillis());
+
+	    return workDays;
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<EmployeeDTO> allEmployees = holidaySystemAppBean.getAllEmployees();
+		List<EmployeeDTO> allDeletedEmployees = holidaySystemAppBean.getAllDeletedEmployees();
+		request.setAttribute("allEmployees", allEmployees);
+		request.setAttribute("allDeletedEmployees", allDeletedEmployees);
+		request.getRequestDispatcher("/employee.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+}

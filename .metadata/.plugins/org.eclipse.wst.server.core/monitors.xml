@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<monitors>
+  <monitor port="5800" portId="1" serverId="WildFly 17 at localhost" started="true"/>
+  <monitor port="14387" portId="2" serverId="WildFly 17 at localhost" started="true"/>
+</monitors>

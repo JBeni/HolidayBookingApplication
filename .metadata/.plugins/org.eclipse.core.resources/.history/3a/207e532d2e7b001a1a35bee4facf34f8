@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="HolidayBookingAppEAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="HolidayBookingApp.jar" deploy-path="/" handle="module:/resource/HolidayBookingApp/HolidayBookingApp">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="HolidayBookingAppClient.jar" deploy-path="/" handle="module:/resource/HolidayBookingAppClient/HolidayBookingAppClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="HolidayBookingAppWebApplication.war" deploy-path="/" handle="module:/resource/HolidayBookingAppWebApplication/HolidayBookingAppWebApplication">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="WebJobScheduler.jar" deploy-path="/" handle="module:/resource/WebJobScheduler/WebJobScheduler">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

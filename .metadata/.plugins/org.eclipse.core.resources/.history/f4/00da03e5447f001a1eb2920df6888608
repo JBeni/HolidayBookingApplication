@@ -1,0 +1,5 @@
+package ejbholidaybookingutilsapp;
+
+public class Logger {
+
+}

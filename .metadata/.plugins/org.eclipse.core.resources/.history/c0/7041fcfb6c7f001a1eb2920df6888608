@@ -1,0 +1,106 @@
+package mastering;
+
+import java.sql.Date;
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Schedule;
+import javax.ejb.Stateless;
+
+import org.apache.log4j.Logger;
+
+import ejbholidaybookingapp.HolidayRemainingAppBeanRemote;
+import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
+import ejbholidaybookingutilsapp.HolidayUtilsClass;
+import entityclasses.EmployeeDTO;
+import entityclasses.HolidayRemainingDTO;
+import entityclasses.HolidayRequestDTO;
+import holidaybookingappclient.HolidaySystemAppServlet;
+import model.THolidayRequest;
+
+@Stateless
+@LocalBean
+public class Timer {
+
+	@EJB
+	private HolidaySystemAppBeanRemote holidaySystemAppBean;
+
+	@EJB
+	private HolidayRemainingAppBeanRemote holidayRemainingAppBean;
+
+	private static final Logger logger = Logger.getLogger(Timer.class);
+
+	public Timer() {
+	}
+
+	/* https://stackoverflow.com/questions/16059564/ejb-3-1-timer-to-schedule-1st-of-every-month
+	 * Answered by Piotr Nowicki */
+	@Schedule(dayOfMonth="15", hour="23", minute="48", persistent=false)
+	public void runOncePerMonthForOneYearCheckingEmployees() {
+		try {
+			java.util.Date currentUtilDate = new java.util.Date();
+			Date currentDate = new Date(currentUtilDate.getTime());
+	
+			List<HolidayRemainingDTO> holRemainingRecords = holidayRemainingAppBean.getAllHolidayRemaining();
+			for (HolidayRemainingDTO e : holRemainingRecords) {
+				if (currentDate.compareTo(e.getOneYearDateCheck()) > 0) {
+					// update the holiday remaining days to the value from the employee table
+					EmployeeDTO employee = holidaySystemAppBean.getEmployeeById(e.getIdEmp());
+					HolidayRemainingDTO holRemaining = holidayRemainingAppBean.getHolidayRemainingById(e.getIdHolRemaining());
+					
+					holRemaining.setHolidayDaysRemaining(employee.getHolDaysEntitlement());
+					holRemaining.setOneYearDateCheck(HolidayUtilsClass.addingOneYearToHireDate(e.getOneYearDateCheck()));
+	
+					holidayRemainingAppBean.updateHolRemainingRecord(holRemaining);
+				}
+			}
+
+			System.out.println("One Year Cheched without errors...");
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+	}
+
+	/* https://stackoverflow.com/questions/16059564/ejb-3-1-timer-to-schedule-1st-of-every-month
+	 * Answered by Piotr Nowicki */
+	@Schedule(dayOfMonth="16", hour="0", minute="5", persistent=false)
+	public void runOncePerYearForFiveYearsCheckingEmployees() {
+		try {
+			java.util.Date currentUtilDate = new java.util.Date();
+			Date currentDate = new Date(currentUtilDate.getTime());
+
+			List<HolidayRemainingDTO> holRemainingRecords = holidayRemainingAppBean.getAllHolidayRemaining();
+			for (HolidayRemainingDTO e : holRemainingRecords) {
+				if (currentDate.compareTo(e.getFiveYearDateCheck()) > 0) {
+					EmployeeDTO employee = holidaySystemAppBean.getEmployeeById(e.getIdEmp());
+					HolidayRemainingDTO holRemaining = holidayRemainingAppBean.getHolidayRemainingById(e.getIdHolRemaining());
+
+					employee.setHolDaysEntitlement(employee.getHolDaysEntitlement() + 1);
+					holidaySystemAppBean.editEmployee(employee);
+
+					holRemaining.setHolidayDaysRemaining(employee.getHolDaysEntitlement());
+					holRemaining.setFiveYearDateCheck(HolidayUtilsClass.addingFiveYearsToHireDate(e.getFiveYearDateCheck()));
+
+					holidayRemainingAppBean.updateHolRemainingRecord(holRemaining);
+				}
+			}
+
+			System.out.println("Five Years Cheched without errors...");
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
+/*
+		15 April 2020 - 15 April 2021
+		15 April 2021 - 15 April 2022
+		15 April 2022 - 15 April 2023
+		15 April 2023 - 15 April 2024
+		15 April 2024 - 15 April 2025
+
+		daca data curenta e mai mare decat de 15 April 2025 (hire date * 5) atunci se activeaza mecanismul
+		si crestem cu o zi zilele de vacanta..
+*/
+	}
+
+}

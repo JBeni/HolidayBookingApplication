@@ -1,0 +1,37 @@
+package ejbholidaybookingapp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import entityclasses.HolidayRemainingDTO;
+import model.THolidayRemaining;
+
+@Stateless
+@LocalBean
+public class HolidayRemainingAppBean implements HolidayRemainingAppBeanRemote {
+
+	@PersistenceContext
+	EntityManager entityManager;
+
+    public HolidayRemainingAppBean() {
+    }
+
+	@Override
+	public List<HolidayRemainingDTO> getAllHolidayRemaining() {
+		@SuppressWarnings("unchecked")
+		List<THolidayRemaining> allHolRemaining = entityManager.createNamedQuery("THolidayRemaining.findAll").getResultList();
+		List<HolidayRemainingDTO> allHolRemainingDTO = new ArrayList<>();
+		for (THolidayRemaining e : allHolRemaining) {
+			allHolRemainingDTO.add(new HolidayRemainingDTO(e.getIdHolRemaining(), e.getHolidayDaysRemaining(), e.getOneYearDateCheck(),
+				e.getFiveYearDateCheck(), e.getEmployee().getId()
+			));
+		}
+		return allHolRemainingDTO;
+	}
+
+}

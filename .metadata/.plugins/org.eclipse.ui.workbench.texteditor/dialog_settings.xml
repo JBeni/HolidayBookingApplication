@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="HolidayBookingDTO"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="HolidayBookingDTO"/>
+			<item value="QuartzTest"/>
+			<item value="isUserAdmin"/>
+			<item value="&#x09;&#x09;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap_3.7.css&quot;&gt;"/>
+			<item value="&#x09;&lt;!-- Change it --&gt;"/>
+			<item value="cadastrar.jsp"/>
+			<item value="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&lt;a href=&quot;?id=&lt;%=%&gt;&quot;&gt;"/>
+			<item value="getNameDep()"/>
+			<item value="                        &lt;driver-class&gt;com.mysql.cj.jdbc.Driver&lt;/driver-class&gt;"/>
+			<item value="DEP"/>
+			<item value="&#x09;&#x09;holidayBookingAppBean.editEmployee(updateEmp);"/>
+		</list>
+		<list key="replacehistory">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="742"/>
+		<item key="DIALOG_Y_ORIGIN" value="317"/>
+		<item key="DIALOG_WIDTH" value="336"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>
