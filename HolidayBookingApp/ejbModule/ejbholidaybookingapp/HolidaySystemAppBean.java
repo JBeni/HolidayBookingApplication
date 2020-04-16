@@ -3,7 +3,6 @@ package ejbholidaybookingapp;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -83,7 +82,7 @@ public class HolidaySystemAppBean implements HolidaySystemAppBeanRemote {
 		List<TDepartment> departments = entityManager.createNamedQuery("TDepartment.findAll").getResultList();
 		List<DepartmentDTO> departmentsDTO = new ArrayList<>();
 		for (TDepartment e : departments) {
-			departmentsDTO.add(new DepartmentDTO(e.getIdDep(), e.getNameDep(), e.getMaxNPeople()));
+			departmentsDTO.add(new DepartmentDTO(e.getIdDep(), e.getNameDep(), e.getNameDepUpper(), e.getMaxNPeople()));
 		}
 		return departmentsDTO;
 	}
@@ -94,7 +93,7 @@ public class HolidaySystemAppBean implements HolidaySystemAppBeanRemote {
 		List<TEmployeeRole> employeeRoles = entityManager.createNamedQuery("TEmployeeRole.findAll").getResultList();
 		List<EmployeeRoleDTO> employeeRolesDTO = new ArrayList<>();
 		for (TEmployeeRole e : employeeRoles) {
-			employeeRolesDTO.add(new EmployeeRoleDTO(e.getIdEmpRole(), e.getNameEmpRole(), e.getCanApprove()));
+			employeeRolesDTO.add(new EmployeeRoleDTO(e.getIdEmpRole(), e.getNameEmpRole(), e.getNameEmpRoleUpper(), e.getCanApprove()));
 		}
 		return employeeRolesDTO;
 	}

@@ -7,11 +7,13 @@ public class EmployeeRoleDTO implements Serializable {
 
 	private int idEmpRole;
 	private String nameEmpRole;
+	private String nameEmpRoleUpper;
 	private boolean canApprove;
 
-	public EmployeeRoleDTO(int id, String empRoleName, boolean canApprove) {
+	public EmployeeRoleDTO(int id, String empRoleName, String empRoleNameUpper, boolean canApprove) {
 		this.idEmpRole = id;
 		this.nameEmpRole = empRoleName;
+		this.nameEmpRoleUpper = empRoleNameUpper;
 		this.canApprove = canApprove;
 	}
 
@@ -29,6 +31,14 @@ public class EmployeeRoleDTO implements Serializable {
 
 	public void setNameEmpRole(String nameEmpRole) {
 		this.nameEmpRole = nameEmpRole;
+	}
+
+	public String getNameEmpRoleUpper() {
+		return nameEmpRoleUpper;
+	}
+
+	public void setNameEmpRoleUpper(String nameEmpRoleUpper) {
+		this.nameEmpRoleUpper = nameEmpRoleUpper;
 	}
 
 	public boolean getCanApprove() {

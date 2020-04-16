@@ -31,6 +31,16 @@
 		});
       </script>
 <!-- End of section "Cod taken" -->
+
+	<script type="text/javascript">
+		window.onload = function() {
+			$('#select-role').attr('disabled','disabled');
+		}
+
+		function changeFunc() {
+			$('#select-role').attr('disabled','disabled');
+		}
+	</script>
 </head>
 
 <body class="h-100">
@@ -71,7 +81,6 @@
 		</div>
 		<div class="form-group">
 			<label>Hire_date</label>
-			<input type="text" class="form-control" name="hireDate" placeholder="Hire_date" readOnly disabled />
 			<p>Date: <input type="text" readOnly name="hireDatePicker" id="datepicker"></p>
 		</div>
 		<div class="form-group">
@@ -88,23 +97,8 @@
 		</div>
 
 		<div class="form-group">
-			<label>Select a Role</label>
-			<select class="select form-control" name="selectedEmployeeRole">
-				<option class="form-control" value="" selected="selected" disabled="disabled">Select a role:</option>
-				<%
-					@SuppressWarnings("unchecked")
-					List<EmployeeRoleDTO> employeeRoles = (List<EmployeeRoleDTO>) request.getAttribute("employeeRoles");
-					for (EmployeeRoleDTO e : employeeRoles) {
-				%>
-						<option class="form-control" value="<%=e.getIdEmpRole()%>"><%=e.getNameEmpRole()%></option>
-				<%
-					}
-				%>
-			</select>
-		</div>
-		<div class="form-group">
 			<label>Select a Department</label>
-			<select class="select form-control" name="selectedEmployeeDepartment">
+			<select class="select form-control" name="selectedEmployeeDepartment" onchange="changeFunc();">
 				<option class="form-control" value="" selected="selected" disabled="disabled">Select an department:</option>
 				<%
 					@SuppressWarnings("unchecked")
@@ -112,6 +106,21 @@
 					for (DepartmentDTO e : departments) {
 				%>
 						<option class="form-control" value="<%=e.getIdDep()%>"><%=e.getNameDep()%></option>
+				<%
+					}
+				%>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Select a Role</label>
+			<select id="select-role" class="select form-control" name="selectedEmployeeRole">
+				<option class="form-control" value="" selected="selected" disabled="disabled">Select a role:</option>
+				<%
+					@SuppressWarnings("unchecked")
+					List<EmployeeRoleDTO> employeeRoles = (List<EmployeeRoleDTO>) request.getAttribute("employeeRoles");
+					for (EmployeeRoleDTO e : employeeRoles) {
+				%>
+						<option class="form-control" value="<%=e.getIdEmpRole()%>"><%=e.getNameEmpRole()%></option>
 				<%
 					}
 				%>

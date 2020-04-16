@@ -7,11 +7,13 @@ public class DepartmentDTO implements Serializable {
 
 	private int idDep;
 	private String nameDep;
+	private String nameDepUpper;
 	private int maxNPeople;
 
-	public DepartmentDTO(int id, String name, int maxPeople) {
+	public DepartmentDTO(int id, String name, String nameUpper, int maxPeople) {
 		this.idDep = id;
 		this.nameDep = name;
+		this.nameDepUpper = nameUpper;
 		this.maxNPeople = maxPeople;
 	}
 
@@ -29,6 +31,14 @@ public class DepartmentDTO implements Serializable {
 
 	public void setNameDep(String nameDep) {
 		this.nameDep = nameDep;
+	}
+
+	public String getNameDepUpper() {
+		return nameDepUpper;
+	}
+
+	public void setNameDepUpper(String nameDepUpper) {
+		this.nameDepUpper = nameDepUpper;
 	}
 
 	public int getMaxNPeople() {

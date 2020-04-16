@@ -9,10 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import entityclasses.HolidayRemainingDTO;
-import entityclasses.HolidayRequestDTO;
 import model.TEmployee;
 import model.THolidayRemaining;
-import model.THolidayRequest;
 
 @Stateless
 @LocalBean

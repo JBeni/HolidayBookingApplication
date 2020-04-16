@@ -33,7 +33,7 @@ public class Timer {
 
 	/* https://stackoverflow.com/questions/16059564/ejb-3-1-timer-to-schedule-1st-of-every-month
 	 * Answered by Piotr Nowicki */
-	@Schedule(dayOfMonth="15", hour="23", minute="48", persistent=false)
+	@Schedule(dayOfMonth="1", hour="23", minute="50", persistent=false)
 	public void runOncePerMonthForOneYearCheckingEmployees() {
 		try {
 			java.util.Date currentUtilDate = new java.util.Date();
@@ -61,7 +61,7 @@ public class Timer {
 
 	/* https://stackoverflow.com/questions/16059564/ejb-3-1-timer-to-schedule-1st-of-every-month
 	 * Answered by Piotr Nowicki */
-	@Schedule(dayOfMonth="16", hour="0", minute="18", persistent=false)
+	@Schedule(dayOfMonth="1", hour="0", minute="30", persistent=false)
 	public void runOncePerMonthForFiveYearsCheckingEmployees() {
 		try {
 			java.util.Date currentUtilDate = new java.util.Date();

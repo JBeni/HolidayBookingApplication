@@ -6,6 +6,20 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    $("#del").hide();
+			});
+
+			function buttonClicked() {
+				$('#del').toggle();
+				$('#del').unhide();
+			}
+		</script>
 	</head>
 
 <body>
@@ -34,7 +48,7 @@
 			</a>
 		</div>
 	</div>
-	<table class="table table-bordered table-striper table-hover">
+	<table id="del" class="table table-bordered table-striper table-hover">
 		<tr>
 			<th>FirstName</th>
 			<th>LastName</th>
@@ -67,9 +81,10 @@
 			}
 		%>
 	</table>
-	
+
 	<p>Show all deleted users</p>
-	<table class="table table-bordered table-striper table-hover">
+	<button onchange="buttonClicked();">Show Employees</button>
+	<table id="deleted-employees" class="table table-bordered table-striper table-hover">
 		<tr>
 			<th>FirstName</th>
 			<th>LastName</th>

@@ -1,0 +1,22 @@
+package ejbholidaybookingapp;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+@Stateless
+@LocalBean
+public class EmployeeAppBean implements EmployeeAppBeanRemote {
+
+	@PersistenceContext
+	EntityManager entityManager;
+
+    public EmployeeAppBean() {
+    }
+
+	@Override
+	public void getEmployeesByDepartmentId(int id) {		
+	}
+
+}

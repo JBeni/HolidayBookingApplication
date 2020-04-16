@@ -1,0 +1,9 @@
+package ejbholidaybookingapp;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface EmployeeRoleAppBeanRemote {
+	boolean checkHeadRoleAvailableForDepartment(String upperName);
+	boolean checkDeputyHeadRoleAvailableForDepartment(String upperName);
+}

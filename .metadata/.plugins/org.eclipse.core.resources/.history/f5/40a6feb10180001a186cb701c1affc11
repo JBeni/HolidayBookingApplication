@@ -1,0 +1,10 @@
+package ejbholidaybookingapp;
+
+import javax.ejb.Remote;
+import entityclasses.EmployeeRoleDTO;
+
+@Remote
+public interface EmployeeRoleAppBeanRemote {
+	EmployeeRoleDTO getHeadRole(String upperName);
+	EmployeeRoleDTO getDeputyHeadRole(String upperName);
+}
