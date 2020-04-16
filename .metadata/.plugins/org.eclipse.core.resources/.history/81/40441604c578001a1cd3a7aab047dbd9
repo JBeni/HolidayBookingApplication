@@ -1,7 +1,0 @@
-package holidaybookingappclient;
-
-import java.sql.Date;
-
-public @interface Async {
-	int getWorkingDaysBetweenTwoDates(Date startDate, Date endDate);
-}

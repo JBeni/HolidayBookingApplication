@@ -1,5 +1,0 @@
-package holidaybookingappclient;
-
-public @interface Async {
-
-}

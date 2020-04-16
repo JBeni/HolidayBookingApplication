@@ -1,8 +1,0 @@
-package ejbholidaybookingapp;
-
-import javax.ejb.Remote;
-
-@Remote
-public interface CheckConstraintsAppBeanRemote {
-	HolidayRequestDTO getHolidayRequestById(int id);
-}
