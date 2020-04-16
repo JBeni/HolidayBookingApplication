@@ -1,0 +1,93 @@
+package holidaybookingappclient;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Schedule;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+import ejbholidaybookingapp.BookingRequestAppBeanRemote;
+import ejbholidaybookingapp.CheckConstraintsAppBeanRemote;
+import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
+import entityclasses.EmployeeDTO;
+
+@WebServlet("/HolidaySystemAppServlet")
+public class HolidaySystemAppServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	@EJB
+	private HolidaySystemAppBeanRemote holidaySystemAppBean;
+	@EJB
+	private CheckConstraintsAppBeanRemote checkConstraintsAppBean;
+	@EJB
+	private BookingRequestAppBeanRemote bookingRequestAppBeanRemote;
+
+	public HolidaySystemAppServlet() {
+		super();
+	}
+
+	private static final Logger logger = Logger.getLogger(HolidaySystemAppServlet.class);
+
+
+    @Schedule(second="1", minute="*", hour="*", persistent=false)
+    public void doWork() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		try {
+			logger.info("This is my first log4j's statement");
+
+			boolean result = holidaySystemAppBean.login(request.getParameter("email"), request.getParameter("password"));
+			EmployeeDTO user = holidaySystemAppBean.getEmployeeByEmail(request.getParameter("email"));
+
+			if (result) {
+				HttpSession session = request.getSession(false);
+				session.setAttribute("username", "admin");
+				response.sendRedirect("EmployeesServlet");
+			} else if (!result) {
+				HttpSession session = request.getSession(false);
+				session.setAttribute("username", "standard-user");
+				session.setAttribute("userId", user.getId());
+				response.sendRedirect("BookingRequestServlet");
+
+				//request.getRequestDispatcher("/menu.jsp").forward(request, response);
+			} else {
+				request.setAttribute("errorLoginMessage",
+						"Invalid username, password or employee role! Please try again.");
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
+			}
+		} catch (Exception e) {
+			if (e.getMessage() == "User does not exists.") {
+				request.getRequestDispatcher("/404page.jsp").forward(request, response);
+			} else {
+				e.printStackTrace();
+			}
+		} finally {
+			out.close();
+		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

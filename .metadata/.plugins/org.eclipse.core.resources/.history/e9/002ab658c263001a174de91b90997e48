@@ -1,0 +1,17 @@
+package ejbholidaybookingapp;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface CheckConstraintsAppBeanRemote {
+	HolidayRequestDTO getHolidayRequestById(int id);
+
+
+	boolean checkSeniorAndSeniorStaffAvailable();
+
+	int getDepartmentRequiredSizeGlobalConstraint(int department);
+	int getDepartmentRequiredSizeAugustMonthConstraint(int department);
+
+	boolean checkDepartmentRequiredSizeGlobalConstraint(int department);
+	boolean checkDepartmentRequiredSizeAugustMonthConstraint(int department);
+}
