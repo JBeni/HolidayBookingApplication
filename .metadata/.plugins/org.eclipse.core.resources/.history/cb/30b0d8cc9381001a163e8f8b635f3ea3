@@ -1,0 +1,12 @@
+package ejbholidaybookingapp;
+
+import java.util.List;
+import javax.ejb.Remote;
+
+import entityclasses.DepartmentDTO;
+import entityclasses.EmployeeRoleDTO;
+
+@Remote
+public interface HolidaySystemAppBeanRemote {
+	boolean login(String email, String password) throws Exception;
+}

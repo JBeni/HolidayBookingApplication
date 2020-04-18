@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
 import entityclasses.EmployeeDTO;
 
 @WebServlet("/DeleteEmployeeServlet")
@@ -19,7 +19,7 @@ public class DeleteEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-    private HolidaySystemAppBeanRemote holidaySystemAppBean;
+    private EmployeeAppBeanRemote employeeAppBean;
 
 	private static final Logger logger = Logger.getLogger(DeleteEmployeeServlet.class);
 
@@ -30,9 +30,9 @@ public class DeleteEmployeeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			int employeeId = Integer.parseInt(request.getParameter("id"));
-			EmployeeDTO queryResult = holidaySystemAppBean.getEmployeeById(employeeId);
+			EmployeeDTO queryResult = employeeAppBean.getEmployeeById(employeeId);
 			if (queryResult != null) {
-				holidaySystemAppBean.deleteEmployee(queryResult);
+				employeeAppBean.deleteEmployee(queryResult);
 				response.sendRedirect("EmployeesServlet");
 			} else {
 				// error

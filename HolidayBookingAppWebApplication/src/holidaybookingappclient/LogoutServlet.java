@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.Logger;
 
 @WebServlet("/LogoutServlet")
@@ -23,13 +22,10 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session = request.getSession(false);
-			String s = (String) session.getAttribute("username");
 	
 			session.removeAttribute("username");
 			session.removeAttribute("userId");
 			session.removeAttribute("isDeleted");
-	
-			String ss = (String ) session.getAttribute("username");
 	
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		} catch (Exception e) {

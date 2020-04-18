@@ -10,8 +10,8 @@ import javax.ejb.Stateless;
 
 import org.apache.log4j.Logger;
 
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
 import ejbholidaybookingapp.HolidayRemainingAppBeanRemote;
-import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
 import ejbholidaybookingutilsapp.HolidayUtilsClass;
 import entityclasses.EmployeeDTO;
 import entityclasses.HolidayRemainingDTO;
@@ -21,7 +21,7 @@ import entityclasses.HolidayRemainingDTO;
 public class Timer {
 
 	@EJB
-	private HolidaySystemAppBeanRemote holidaySystemAppBean;
+	private EmployeeAppBeanRemote employeeAppBean;
 
 	@EJB
 	private HolidayRemainingAppBeanRemote holidayRemainingAppBean;
@@ -29,13 +29,11 @@ public class Timer {
 	private static final Logger logger = Logger.getLogger(Timer.class);
 
 	public Timer() {
-		logger.info("beniamin");
 	}
 
 	/* https://stackoverflow.com/questions/16059564/ejb-3-1-timer-to-schedule-1st-of-every-month
 	 * Answered by Piotr Nowicki */
-	//	@Schedule(dayOfMonth="1", hour="23", minute="50", persistent=false)
-	@Schedule(second="1/4", hour="*", minute="*", persistent=false)
+	@Schedule(dayOfMonth="1", hour="23", minute="50", persistent=false)
 	public void runOncePerMonthForOneYearCheckingEmployees() {
 		try {
 			java.util.Date currentUtilDate = new java.util.Date();
@@ -45,7 +43,7 @@ public class Timer {
 			for (HolidayRemainingDTO e : holRemainingRecords) {
 				if (currentDate.compareTo(e.getOneYearDateCheck()) > 0) {
 					// update the holiday remaining days to the value from the employee table
-					EmployeeDTO employee = holidaySystemAppBean.getEmployeeById(e.getIdEmp());
+					EmployeeDTO employee = employeeAppBean.getEmployeeById(e.getIdEmp());
 					HolidayRemainingDTO holRemaining = holidayRemainingAppBean.getHolidayRemainingById(e.getIdHolRemaining());
 					
 					holRemaining.setHolidayDaysRemaining(employee.getHolDaysEntitlement());
@@ -72,11 +70,11 @@ public class Timer {
 			List<HolidayRemainingDTO> holRemainingRecords = holidayRemainingAppBean.getAllHolidayRemaining();
 			for (HolidayRemainingDTO e : holRemainingRecords) {
 				if (currentDate.compareTo(e.getFiveYearDateCheck()) > 0) {
-					EmployeeDTO employee = holidaySystemAppBean.getEmployeeById(e.getIdEmp());
+					EmployeeDTO employee = employeeAppBean.getEmployeeById(e.getIdEmp());
 					HolidayRemainingDTO holRemaining = holidayRemainingAppBean.getHolidayRemainingById(e.getIdHolRemaining());
 
 					employee.setHolDaysEntitlement(employee.getHolDaysEntitlement() + 1);
-					holidaySystemAppBean.editEmployee(employee);
+					employeeAppBean.updateEmployee(employee);
 
 					holRemaining.setHolidayDaysRemaining(employee.getHolDaysEntitlement());
 					holRemaining.setFiveYearDateCheck(HolidayUtilsClass.addingFiveYearsToHireDate(e.getFiveYearDateCheck()));

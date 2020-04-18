@@ -6,5 +6,12 @@ import entityclasses.EmployeeDTO;
 
 @Remote
 public interface EmployeeAppBeanRemote {
+	EmployeeDTO getEmployeeByEmail(String email);
+	EmployeeDTO getEmployeeById(int id);
+	List<EmployeeDTO> getAllEmployees();
+	List<EmployeeDTO> getAllDeletedEmployees();
 	List<EmployeeDTO> getEmployeesByDepartmentId(int id);
+	boolean addEmployee(EmployeeDTO newEmp);
+	boolean updateEmployee(EmployeeDTO updateEmp);
+	boolean deleteEmployee(EmployeeDTO deleteEmp);
 }

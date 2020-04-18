@@ -13,7 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
+import ejbholidaybookingapp.DepartmentAppBeanRemote;
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
+import ejbholidaybookingapp.EmployeeRoleAppBeanRemote;
 import entityclasses.DepartmentDTO;
 import entityclasses.EmployeeDTO;
 import entityclasses.EmployeeRoleDTO;
@@ -23,7 +25,11 @@ public class EditEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-    private HolidaySystemAppBeanRemote holidaySystemAppBean;
+    private EmployeeAppBeanRemote employeeAppBean;
+	@EJB
+    private EmployeeRoleAppBeanRemote employeeRoleAppBean;
+	@EJB
+    private DepartmentAppBeanRemote departmentAppBean;
 
 	private static final Logger logger = Logger.getLogger(EditEmployeeServlet.class);
 
@@ -35,16 +41,16 @@ public class EditEmployeeServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession(false);
 			int employeeId = Integer.parseInt(request.getParameter("id"));
-			EmployeeDTO queryResult = holidaySystemAppBean.getEmployeeById(employeeId);
-	
+			EmployeeDTO queryResult = employeeAppBean.getEmployeeById(employeeId);
+
 			if (queryResult != null) {
 		    	request.setAttribute("employee", queryResult);
 				session.setAttribute("isDeleted", queryResult.getIsDeleted());
 	
-				List<DepartmentDTO> departments = holidaySystemAppBean.getDepartments();
+				List<DepartmentDTO> departments = departmentAppBean.getDepartments();
 				request.setAttribute("departments", departments);
 	
-				List<EmployeeRoleDTO> employeeRoles = holidaySystemAppBean.getRoles();
+				List<EmployeeRoleDTO> employeeRoles = employeeRoleAppBean.getRoles();
 				request.setAttribute("employeeRoles", employeeRoles);
 	
 		    	request.getRequestDispatcher("/editemployee.jsp").forward(request, response);
@@ -59,8 +65,8 @@ public class EditEmployeeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
-			EmployeeDTO queryResult = holidaySystemAppBean.getEmployeeById(id);
-	
+			EmployeeDTO queryResult = employeeAppBean.getEmployeeById(id);
+
 			String lastName = request.getParameter("lastName");
 			String firstName = request.getParameter("firstName");
 			String email = request.getParameter("email");
@@ -68,10 +74,10 @@ public class EditEmployeeServlet extends HttpServlet {
 			String homeAddress = request.getParameter("homeAddress");
 			Integer salary = Integer.parseInt(request.getParameter("salary"));
 			boolean isDeleted =  Boolean.valueOf(request.getParameter("isDeleted"));
-	
+
 			int employeeRoleId = Integer.parseInt(request.getParameter("selectedEmployeeRole"));
 			int departmentId = Integer.parseInt(request.getParameter("selectedEmployeeDepartment"));
-	
+
 			queryResult.setLastName(lastName);
 			queryResult.setFirstName(firstName);
 			queryResult.setEmail(email);
@@ -81,8 +87,8 @@ public class EditEmployeeServlet extends HttpServlet {
 			queryResult.setIsDeleted(isDeleted);
 			queryResult.setIdDep(departmentId);
 			queryResult.setIdEmpRole(employeeRoleId);
-	
-			holidaySystemAppBean.editEmployee(queryResult);
+
+			employeeAppBean.updateEmployee(queryResult);
 			response.sendRedirect("EmployeesServlet");
 		} catch (Exception e) {
 			logger.error(e.getMessage());

@@ -1,0 +1,20 @@
+package ejbholidaybookingapp;
+
+import java.util.List;
+import javax.ejb.Remote;
+
+import entityclasses.DepartmentDTO;
+import entityclasses.EmployeeDTO;
+import entityclasses.EmployeeRoleDTO;
+
+@Remote
+public interface EmployeeAppBeanRemote {
+	List<EmployeeDTO> getEmployeesByDepartmentId(int id);
+	EmployeeDTO getEmployeeByEmail(String email);
+	EmployeeDTO getEmployeeById(int id);
+	List<EmployeeDTO> getAllEmployees();
+	List<EmployeeDTO> getAllDeletedEmployees();
+	boolean addNewEmployee(EmployeeDTO newEmp);
+	boolean editEmployee(EmployeeDTO updateEmp);
+	boolean deleteEmployee(EmployeeDTO deleteEmp);
+}

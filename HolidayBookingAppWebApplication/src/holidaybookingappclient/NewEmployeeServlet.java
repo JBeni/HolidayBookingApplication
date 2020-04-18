@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import ejbholidaybookingapp.DepartmentAppBeanRemote;
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
+import ejbholidaybookingapp.EmployeeRoleAppBeanRemote;
 import ejbholidaybookingapp.HolidayRemainingAppBeanRemote;
-import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
 import ejbholidaybookingutilsapp.HolidayUtilsClass;
 import entityclasses.DepartmentDTO;
 import entityclasses.EmployeeDTO;
@@ -26,8 +28,11 @@ public class NewEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private HolidaySystemAppBeanRemote holidaySystemAppBean;
-
+	private EmployeeAppBeanRemote employeeAppBean;
+	@EJB
+	private EmployeeRoleAppBeanRemote employeeRoleAppBean;
+	@EJB
+	private DepartmentAppBeanRemote departmentAppBean;
 	@EJB
 	private HolidayRemainingAppBeanRemote holidayRemainingAppBean;
 
@@ -39,10 +44,10 @@ public class NewEmployeeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			List<DepartmentDTO> departments = holidaySystemAppBean.getDepartments();
+			List<DepartmentDTO> departments = departmentAppBean.getDepartments();
 			request.setAttribute("departments", departments);
 
-			List<EmployeeRoleDTO> employeeRoles = holidaySystemAppBean.getRoles();
+			List<EmployeeRoleDTO> employeeRoles = employeeRoleAppBean.getRoles();
 			request.setAttribute("employeeRoles", employeeRoles);
 
 			request.getRequestDispatcher("/newemployee.jsp").forward(request, response);
@@ -68,11 +73,13 @@ public class NewEmployeeServlet extends HttpServlet {
 
 			EmployeeDTO newEmp = new EmployeeDTO(0, lastName, firstName, email, phoneNumber, homeAddress, hireDate,
 					holDaysEntitlement, salary, password, false, employeeRoleId, null, departmentId, null);
-			holidaySystemAppBean.addNewEmployee(newEmp);
+			employeeAppBean.addEmployee(newEmp);
 
-			EmployeeDTO employee = holidaySystemAppBean.getEmployeeByEmail(newEmp.getEmail());
-			Date oneYear = HolidayUtilsClass.addingOneYearToHireDate(HolidayUtilsClass.formatDateFromString(request.getParameter("hireDatePicker")));
-			Date fiveYears = HolidayUtilsClass.addingFiveYearsToHireDate(HolidayUtilsClass.formatDateFromString(request.getParameter("hireDatePicker")));
+			EmployeeDTO employee = employeeAppBean.getEmployeeByEmail(newEmp.getEmail());
+			Date oneYear = HolidayUtilsClass.addingOneYearToHireDate(
+					HolidayUtilsClass.formatDateFromString(request.getParameter("hireDatePicker")));
+			Date fiveYears = HolidayUtilsClass.addingFiveYearsToHireDate(
+					HolidayUtilsClass.formatDateFromString(request.getParameter("hireDatePicker")));
 			HolidayRemainingDTO newHolRemaining = new HolidayRemainingDTO(0, newEmp.getHolDaysEntitlement(), oneYear, fiveYears, employee.getId());
 			holidayRemainingAppBean.addHolRemainingRecord(newHolRemaining);
 

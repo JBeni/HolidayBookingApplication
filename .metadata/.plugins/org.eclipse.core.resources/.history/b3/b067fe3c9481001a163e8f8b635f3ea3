@@ -1,0 +1,79 @@
+package ejbholidaybookingapp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import entityclasses.DepartmentDTO;
+import entityclasses.EmployeeDTO;
+import entityclasses.EmployeeRoleDTO;
+import model.TDepartment;
+import model.TEmployee;
+import model.TEmployeeRole;
+
+@Stateless
+@LocalBean
+public class HolidaySystemAppBean implements HolidaySystemAppBeanRemote {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	public HolidaySystemAppBean() {
+	}
+
+	@Override
+	public boolean login(String email, String password) throws Exception {
+		@SuppressWarnings("unchecked")
+		List<TEmployee> existsUser = entityManager
+				.createQuery("SELECT e FROM TEmployee e WHERE e.email = :email and e.password = :password")
+				.setParameter("email", email).setParameter("password", password).getResultList();
+
+		//0 or 1 to check access privileges
+		if (!existsUser.isEmpty()) {
+			if (existsUser.get(0).getEmployeeRole().getIdEmpRole() == 1) {
+				return true;
+			}
+
+			return false;
+		} else {
+			throw new Exception("User does not exists.");
+		}
+	}
+
+	@Override
+	public EmployeeDTO getEmployeeById(int id) {
+		@SuppressWarnings("unchecked")
+		List<TEmployee> queryResult = entityManager
+				.createQuery("SELECT e FROM TEmployee e WHERE e.id = :id")
+				.setParameter("id", id).getResultList();
+		List<EmployeeDTO> employeeDTO = new ArrayList<>();
+		for (TEmployee e : queryResult) {
+			employeeDTO.add(new EmployeeDTO(e.getId(), e.getLastName(), e.getFirstName(), e.getEmail(), e.getPhoneNumber(),
+					e.getHomeAddress(), e.getHireDate(), e.getHolDaysEntitlement(), e.getSalary(), e.getPassword(), e.getIsDeleted(),
+					e.getEmployeeRole().getIdEmpRole(), e.getEmployeeRole().getNameEmpRole(),
+					e.getDepartment().getIdDep(), e.getDepartment().getNameDep()));
+		}
+		return employeeDTO.get(0);
+	}
+
+	@Override
+	public EmployeeDTO getEmployeeByEmail(String email) {
+		@SuppressWarnings("unchecked")
+		List<TEmployee> queryResult = entityManager
+				.createQuery("SELECT e FROM TEmployee e WHERE e.email = :email")
+				.setParameter("email", email).getResultList();
+		List<EmployeeDTO> employeeDTO = new ArrayList<>();
+		for (TEmployee e : queryResult) {
+			employeeDTO.add(new EmployeeDTO(e.getId(), e.getLastName(), e.getFirstName(), e.getEmail(), e.getPhoneNumber(),
+					e.getHomeAddress(), e.getHireDate(), e.getHolDaysEntitlement(), e.getSalary(), e.getPassword(),
+					e.getIsDeleted(), e.getEmployeeRole().getIdEmpRole(), e.getEmployeeRole().getNameEmpRole(),
+					e.getDepartment().getIdDep(), e.getDepartment().getNameDep()));
+		}
+		return employeeDTO.get(0);
+	}
+
+}

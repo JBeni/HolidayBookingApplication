@@ -8,10 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
-
-import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
 import entityclasses.EmployeeDTO;
 
 @WebServlet("/EmployeesServlet")
@@ -19,7 +17,7 @@ public class EmployeesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     @EJB
-	private HolidaySystemAppBeanRemote holidaySystemAppBean;
+	private EmployeeAppBeanRemote employeeAppBean;
 
 	private static final Logger logger = Logger.getLogger(EmployeesServlet.class);
 
@@ -29,8 +27,8 @@ public class EmployeesServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	try {
-			List<EmployeeDTO> allEmployees = holidaySystemAppBean.getAllEmployees();
-			List<EmployeeDTO> allDeletedEmployees = holidaySystemAppBean.getAllDeletedEmployees();
+			List<EmployeeDTO> allEmployees = employeeAppBean.getAllEmployees();
+			List<EmployeeDTO> allDeletedEmployees = employeeAppBean.getAllDeletedEmployees();
 			request.setAttribute("allEmployees", allEmployees);
 			request.setAttribute("allDeletedEmployees", allDeletedEmployees);
 			request.getRequestDispatcher("/employee.jsp").forward(request, response);

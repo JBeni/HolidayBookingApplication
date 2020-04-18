@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ejbholidaybookingapp.PeakTimeDTO"/>
-<fullyQualifiedTypeName name="model.TDepartment"/>
-<fullyQualifiedTypeName name="model.THolidayBooking"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.CheckConstraintsAppBeanRemote"/>
 <fullyQualifiedTypeName name="java.sql.DataTruncation"/>
 <fullyQualifiedTypeName name="javax.ejb.TimerService"/>
@@ -38,7 +35,6 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="model.TEmployee"/>
 <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="java.util.TimerTask"/>
@@ -49,7 +45,6 @@
 <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
 <fullyQualifiedTypeName name="javax.ejb.Schedule"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.HolidaySystemAppBeanRemote"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="entityclasses.EmployeeDTO"/>
 <fullyQualifiedTypeName name="javax.ejb.EJB"/>
 <fullyQualifiedTypeName name="ejbholidaybookingutilsapp.LoggerFactory"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="javax.ejb.LocalBean"/>
 <fullyQualifiedTypeName name="entityclasses.EmployeeRoleDTO"/>
 <fullyQualifiedTypeName name="model.TEmployeeRole"/>
+<fullyQualifiedTypeName name="model.TEmployee"/>
+<fullyQualifiedTypeName name="ejbholidaybookingapp.DepartmentAppBeanRemote"/>
+<fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeRoleAppBeanRemote"/>
+<fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeAppBeanRemote"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

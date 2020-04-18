@@ -1,5 +1,8 @@
 package ejbholidaybookingapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -27,6 +30,17 @@ public class EmployeeRoleAppBean implements EmployeeRoleAppBeanRemote {
 				empRole.getIdEmpRole(), empRole.getNameEmpRole(), empRole.getNameEmpRoleUpper(), empRole.getCanApprove()
 			);
 		return empRoleDTO;
+	}
+
+	@Override
+	public List<EmployeeRoleDTO> getRoles() {
+		@SuppressWarnings("unchecked")
+		List<TEmployeeRole> employeeRoles = entityManager.createNamedQuery("TEmployeeRole.findAll").getResultList();
+		List<EmployeeRoleDTO> employeeRolesDTO = new ArrayList<>();
+		for (TEmployeeRole e : employeeRoles) {
+			employeeRolesDTO.add(new EmployeeRoleDTO(e.getIdEmpRole(), e.getNameEmpRole(), e.getNameEmpRoleUpper(), e.getCanApprove()));
+		}
+		return employeeRolesDTO;
 	}
 
 }

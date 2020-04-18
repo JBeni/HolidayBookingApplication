@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import ejbholidaybookingapp.BookingRequestAppBeanRemote;
 import ejbholidaybookingapp.CheckConstraintsAppBeanRemote;
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
 import ejbholidaybookingapp.HolidaySystemAppBeanRemote;
 import entityclasses.EmployeeDTO;
 
@@ -23,6 +24,8 @@ public class HolidaySystemAppServlet extends HttpServlet {
 
 	@EJB
 	private HolidaySystemAppBeanRemote holidaySystemAppBean;
+	@EJB
+	private EmployeeAppBeanRemote employeeAppBean;
 	@EJB
 	private CheckConstraintsAppBeanRemote checkConstraintsAppBean;
 	@EJB
@@ -38,33 +41,30 @@ public class HolidaySystemAppServlet extends HttpServlet {
 		try {
 			PrintWriter out = response.getWriter();
 
-			boolean result = holidaySystemAppBean.login(request.getParameter("email"), request.getParameter("password"));
-			EmployeeDTO user = holidaySystemAppBean.getEmployeeByEmail(request.getParameter("email"));
+			int roleId = holidaySystemAppBean.login(request.getParameter("email"), request.getParameter("password"));
+			EmployeeDTO user = employeeAppBean.getEmployeeByEmail(request.getParameter("email"));
 
-			if (result) {
+			// 1 for 'Head' and 2 for 'Deputy Head'
+			if (roleId == 1 || roleId == 2) {
 				HttpSession session = request.getSession(false);
 				session.setAttribute("username", "admin");
 				response.sendRedirect("EmployeesServlet");
-			} else if (!result) {
+			} else if (roleId == 1 && roleId == 2 && roleId != 0) {
 				HttpSession session = request.getSession(false);
 				session.setAttribute("username", "standard-user");
 				session.setAttribute("userId", user.getId());
 				response.sendRedirect("BookingRequestServlet");
 
 				//request.getRequestDispatcher("/menu.jsp").forward(request, response);
-			} else {
-				request.setAttribute("errorLoginMessage",
-						"Invalid username, password or employee role! Please try again.");
+			} else if (roleId == 0) {
+				logger.warn("User does not exist in the databasase. Email written: " + request.getParameter("email"));
+				request.setAttribute("errorLoginMessage", "Invalid username, password or employee role! Please try again.");
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
 			}
 
 			out.close();
 		} catch (Exception e) {
-			if (e.getMessage() == "User does not exists.") {
-				request.getRequestDispatcher("/404page.jsp").forward(request, response);
-			} else {
-				logger.error(e.getMessage());
-			}
+			logger.error(e.getMessage());
 		}
 	}
 

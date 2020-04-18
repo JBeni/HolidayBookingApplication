@@ -52,3 +52,4 @@
 2020-04-18 17:08:29 ERROR stderr:71 - 	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
 2020-04-18 17:08:29 ERROR stderr:71 - 	at java.lang.Thread.run(Thread.java:748)
 2020-04-18 17:08:29 ERROR NewEmployeeServlet:81 - For input string: ""
+2020-04-18 18:32:31 ERROR HolidaySystemAppServlet:70 - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
