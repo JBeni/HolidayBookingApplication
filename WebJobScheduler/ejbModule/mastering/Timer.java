@@ -29,11 +29,13 @@ public class Timer {
 	private static final Logger logger = Logger.getLogger(Timer.class);
 
 	public Timer() {
+		logger.info("beniamin");
 	}
 
 	/* https://stackoverflow.com/questions/16059564/ejb-3-1-timer-to-schedule-1st-of-every-month
 	 * Answered by Piotr Nowicki */
-	@Schedule(dayOfMonth="1", hour="23", minute="50", persistent=false)
+	//	@Schedule(dayOfMonth="1", hour="23", minute="50", persistent=false)
+	@Schedule(second="1/4", hour="*", minute="*", persistent=false)
 	public void runOncePerMonthForOneYearCheckingEmployees() {
 		try {
 			java.util.Date currentUtilDate = new java.util.Date();
