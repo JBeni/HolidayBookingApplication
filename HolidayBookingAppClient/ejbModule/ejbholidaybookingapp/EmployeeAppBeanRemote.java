@@ -3,6 +3,7 @@ package ejbholidaybookingapp;
 import java.util.List;
 import javax.ejb.Remote;
 import entityclasses.EmployeeDTO;
+import models_non_db.EmployeeDataObject;
 
 @Remote
 public interface EmployeeAppBeanRemote {
@@ -14,4 +15,7 @@ public interface EmployeeAppBeanRemote {
 	boolean addEmployee(EmployeeDTO newEmp);
 	boolean updateEmployee(EmployeeDTO updateEmp);
 	boolean deleteEmployee(EmployeeDTO deleteEmp);
+
+	EmployeeDataObject checkingContraintsOnEmployee(String lastName, String firstName, String email, String phoneNumber,
+			String homeAddress, String hireDate, String holDaysEntitlement, String salary, String password, String department, String role);
 }

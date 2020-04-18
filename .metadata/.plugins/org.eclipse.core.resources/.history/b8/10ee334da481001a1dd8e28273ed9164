@@ -1,0 +1,12 @@
+package models;
+
+public class EmployeeDataObject {
+	public boolean error;
+	public String lastName;
+	public String firstName;
+	public String email;
+	public String phoneNumber;
+	public String homeAddress;
+	public String hireDate;
+	public String holDaysEntitlement;
+}

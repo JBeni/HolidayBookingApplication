@@ -199,18 +199,4 @@ public class BookingRequestAppBean implements BookingRequestAppBeanRemote {
 		return employeesAtWorkDTO;
 	}
 
-
-	// testing purpose only !!!!!
-	@Override
-	public void test() {
-		List<Integer> employeeInHolidayDTO = new ArrayList<>();
-		employeeInHolidayDTO.add(4);
-
-		@SuppressWarnings("unchecked")
-		List<TEmployee> allEmployees = (List<TEmployee>) entityManager
-				.createQuery("SELECT e FROM TEmployee e WHERE e.id NOT IN (:list)")
-				.setParameter("list", employeeInHolidayDTO).getResultList();
-		String t = "";
-	}
-
 }

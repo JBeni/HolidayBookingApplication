@@ -12,7 +12,7 @@
 
 		<script type="text/javascript">
 			$(document).ready(function(){
-			    $("#del").hide();
+			    $("#deleted-employees").hide();
 			});
 
 			function buttonClicked() {

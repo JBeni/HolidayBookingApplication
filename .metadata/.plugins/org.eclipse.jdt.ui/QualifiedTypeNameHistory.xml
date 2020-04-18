@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ejbholidaybookingapp.CheckConstraintsAppBeanRemote"/>
-<fullyQualifiedTypeName name="java.sql.DataTruncation"/>
-<fullyQualifiedTypeName name="javax.ejb.TimerService"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.jms.MapMessage"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.CycleRecoverable.Context"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.BookingRequestAppBeanRemote"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeRoleAppBeanRemote"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeAppBeanRemote"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="models.EmployeeDataObject"/>
+<fullyQualifiedTypeName name="models_non_db.EmployeeDataObject"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>

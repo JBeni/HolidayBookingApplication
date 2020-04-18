@@ -23,6 +23,4 @@ public interface BookingRequestAppBeanRemote {
 	List<HolidayRequestDTO> filterHolidayReuqestByEmployee(String lastName, String firstName, String email, String roleName, String depName);
 	List<EmployeeDTO> showEmployeesInHoliday(Date day);
 	List<EmployeeDTO> showEmployeesAtWork(Date day);
-
-	void test();
 }

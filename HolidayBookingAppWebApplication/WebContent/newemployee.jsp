@@ -3,22 +3,19 @@
 <%@ page import="java.util.*"%>
 <%@ page import="entityclasses.DepartmentDTO"%>
 <%@ page import="entityclasses.EmployeeRoleDTO"%>
+<%@ page import="models_non_db.EmployeeDataObject"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Add new Employee</title>
-	<link rel="stylesheet" href="css/bootstrap_3.7.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-	<!--
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	-->
-
-<!-- Cod taken from https://www.tutorialspoint.com/jqueryui/jqueryui_datepicker.htm -->
+	  <!-- Cod taken from https://www.tutorialspoint.com/jqueryui/jqueryui_datepicker.htm -->
       <script type="text/javascript">
 		$(function() {
 		   $("#datepicker").datepicker({
@@ -30,7 +27,6 @@
 		   });
 		});
       </script>
-<!-- End of section "Cod taken" -->
 
 	<script type="text/javascript">
 		window.onload = function() {
@@ -60,11 +56,13 @@
 
 	<form method="POST" action="NewEmployeeServlet">
 		<div class="form-group">
-			<label>Last_name</label>
+			<label>Last name</label>
 			<input class="form-control" name="lastName" placeholder="Last_name" />
+			<p style="color: red;">${employeeData.firstName}</p>
+			<p style="color: red;">${employeeData.firstName}</p>
 		</div>
 		<div class="form-group">
-			<label>First_name</label>
+			<label>First name</label>
 			<input class="form-control" name="firstName" placeholder="First_name" />
 		</div>
 		<div class="form-group">
@@ -72,19 +70,19 @@
 			<input class="form-control" name="email" placeholder="email" />
 		</div>
 		<div class="form-group">
-			<label>Phone_number</label>
+			<label>Phone number</label>
 			<input class="form-control" name="phoneNumber" placeholder="Phone_number" />
 		</div>
 		<div class="form-group">
-			<label>Home_address</label>
+			<label>Home address</label>
 			<input class="form-control" name="homeAddress" placeholder="Home_address" />
 		</div>
 		<div class="form-group">
-			<label>Hire_date</label>
+			<label>Hire date</label>
 			<p>Date: <input type="text" readOnly name="hireDatePicker" id="datepicker"></p>
 		</div>
 		<div class="form-group">
-			<label>Hol_Days_Entitlement</label>
+			<label>Holiday Days Entitlement</label>
 			<input class="form-control" name="holDaysEntitlement" placeholder="Holiday Days Entitlement" />
 		</div>
 		<div class="form-group">

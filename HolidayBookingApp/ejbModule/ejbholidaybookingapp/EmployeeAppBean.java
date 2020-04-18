@@ -12,6 +12,7 @@ import entityclasses.EmployeeDTO;
 import model.TDepartment;
 import model.TEmployee;
 import model.TEmployeeRole;
+import models_non_db.EmployeeDataObject;
 
 @Stateless
 @LocalBean
@@ -152,6 +153,61 @@ public class EmployeeAppBean implements EmployeeAppBeanRemote {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	@Override
+	public EmployeeDataObject checkingContraintsOnEmployee(String lastName, String firstName, String email, String phoneNumber,
+			String homeAddress, String hireDate, String holDaysEntitlement, String salary, String password, String department, String role) {
+		EmployeeDataObject data = new EmployeeDataObject();
+		data.error = false;
+
+		if (lastName.isEmpty()) {
+			data.lastName = "Last name is required";
+			data.error = true;
+		}
+
+		if (firstName.isEmpty()) {
+			data.firstName = "First name is required";
+			data.error = true;
+		}
+		if (email.isEmpty()) {
+			data.email = "Email is required";
+			data.error = true;
+		}
+		if (phoneNumber.isEmpty()) {
+			data.phoneNumber = "Phone number is required";
+			data.error = true;
+		}
+		if (homeAddress.isEmpty()) {
+			data.homeAddress = "Home address is required";
+			data.error = true;
+		}
+		if (hireDate.isEmpty()) {
+			data.hireDate = "Hire date is required";
+			data.error = true;
+		}
+		if (holDaysEntitlement.isEmpty()) {
+			data.holDaysEntitlement = "Holiday Entitlement is required";
+			data.error = true;
+		}
+		if (salary.isEmpty()) {
+			data.salary = "Salary is required";
+			data.error = true;
+		}
+		if (password.isEmpty()) {
+			data.password = "Password is required";
+			data.error = true;
+		}
+		if (department == null) {
+			data.department = "Department is required";
+			data.error = true;
+		}
+		if (role == null) {
+			data.role = "Role is required";
+			data.error = true;
+		}
+
+		return data;
 	}
 
 }
