@@ -1,0 +1,106 @@
+
+$(document).ready(function() {
+    $("#submitButton").click(function(event){
+        var isValid = validateEmployeeAddForm();
+        if(!isValid){
+            event.preventDefault();
+        }
+    });
+});
+
+function validateEmployeeAddForm() {
+	var sw = false;
+
+	var lastName = $("#lastName").val();
+    var firstName = $("#firstName").val();
+    var email = $("#email").val();
+    var phoneNumber = $("#phoneNumber").val();
+    var homeAddress = $("#homeAddress").val();
+    var hireDate = $("#datepicker").val();
+    var holDaysEntitlement = $("#holDaysEntitlement").val();
+    var salary = $("#salary").val();
+    var department = $("#selectedEmployeeDepartment").val();
+    var role = $("#selectedEmployeeRole").val();
+
+    if(lastName.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(firstName.length == 0) {
+        $(".errorFirstName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorFirstName").empty();
+        sw = false;
+    }
+
+    if(email.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(phoneNumber.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(homeAddress.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(hireDate.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(holDaysEntitlement.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(salary.length == 0) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(department == null) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+    if(role == undefined) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        sw = true;
+    } else {
+        $(".errorLastName").empty();
+        sw = false;
+    }
+
+}
+

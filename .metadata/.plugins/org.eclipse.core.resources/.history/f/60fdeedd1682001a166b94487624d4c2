@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+.errorLastName {
+	color: red;
+}
+
+.errorFirstName {
+	color: red;
+}
+
+.errorEmail {
+	color: red;
+}
+
+.errorPhoneNumber {
+	color: red;
+}
+
+.errorHomeAddress {
+	color: red;
+}
+
+.errorHireDate {
+	color: red;
+}
+
+.errorLastName {
+	color: red;
+}
+
+.errorLastName {
+	color: red;
+}
+
+.errorLastName {
+	color: red;
+}
+
+.errorSalary {
+	color: red;
+}
+
+.errorPassword {
+	color: red;
+}
+
+.errorDepartment {
+	color: red;
+}
+
+.errorRole {
+	color: red;
+}

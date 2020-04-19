@@ -1,0 +1,33 @@
+
+$(document).ready(function() {
+    $("#submitButton").click(function(event){
+        var isValid = validateEmployeeAddForm();
+        if(!isValid){
+            event.preventDefault();
+        }
+    });
+});
+
+function validateEmployeeAddForm() {
+	var sw = false;
+
+	var lastName = $("#lastName").val();
+    var firstName = $("#firstName").val();
+    var email = $("#email").val();
+    var phoneNumber = $("#phoneNumber").val();
+    var homeAddress = $("#homeAddress").val();
+    var hireDate = $("#datepicker").val();
+    var holDaysEntitlement = $("#holDaysEntitlement").val();
+    var salary = $("#salary").val();
+    var department = $("#selectedEmployeeDepartment").val();
+    var role = $("#selectedEmployeeRole").val();
+
+    if(lastName.length < 3) {
+        $(".errorLastName").append("<p>Last name is required.</p>")
+        return false;
+    } else {
+        $(".errorLastName").empty();
+        return false;
+    }
+}
+

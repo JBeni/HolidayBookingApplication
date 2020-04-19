@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+.errorLastName {
+	color: red;
+}
+
+.error {
+	color: red;
+	visibility: hidden;
+}
