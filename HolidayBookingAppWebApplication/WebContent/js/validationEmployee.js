@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
-    $("#submitButton").click(function(event){
+    $("#submitButton").click(function(event) {
         var isValid = validateEmployeeAddForm();
-        if(!isValid){
+        if (!isValid) {
             event.preventDefault();
         }
     });
@@ -23,17 +23,17 @@ function validateEmployeeAddForm() {
     var department = $("#selectedEmployeeDepartment").val();
     var role = $("#selectedEmployeeRole").val();
 
-    if(lastName.length == 0) {
-    	if($(".errorLastName p").val() == undefined) {
-            $(".errorLastName").append("<p>Last name is required.</p>")
-    	}
+    if (lastName.length == 0) {
+        $(".errorLastName").empty();
+        $(".errorLastName").append("<p>Last name is required.</p>")
         sw = true;
     } else {
         $(".errorLastName").empty();
         sw = false;
     }
 
-    if(firstName.length == 0) {
+    if (firstName.length == 0) {
+        $(".errorFirstName").empty();
         $(".errorFirstName").append("<p>First name is required.</p>")
         sw = true;
     } else {
@@ -41,7 +41,8 @@ function validateEmployeeAddForm() {
         sw = false;
     }
 
-    if(email.length == 0) {
+    if (email.length == 0) {
+        $(".errorEmail").empty();
         $(".errorEmail").append("<p>Email is required.</p>")
         sw = true;
     } else {
@@ -49,7 +50,8 @@ function validateEmployeeAddForm() {
         sw = false;
     }
 
-    if(phoneNumber.length == 0) {
+    if (phoneNumber.length == 0) {
+        $(".errorPhoneNumber").empty();
         $(".errorPhoneNumber").append("<p>Phone number is required.</p>")
         sw = true;
     } else {
@@ -57,7 +59,8 @@ function validateEmployeeAddForm() {
         sw = false;
     }
 
-    if(homeAddress.length == 0) {
+    if (homeAddress.length == 0) {
+        $(".errorHomeAddress").empty();
         $(".errorHomeAddress").append("<p>Home address is required.</p>")
         sw = true;
     } else {
@@ -65,7 +68,8 @@ function validateEmployeeAddForm() {
         sw = false;
     }
 
-    if(hireDate.length == 0) {
+    if (hireDate.length == 0) {
+        $(".errorHireDate").empty();
         $(".errorHireDate").append("<p>Hire date is required.</p>")
         sw = true;
     } else {
@@ -73,40 +77,53 @@ function validateEmployeeAddForm() {
         sw = false;
     }
 
-    if(holDaysEntitlement.length == 0) {
-        $(".errorHolDaysEntitlement").append("<p>Holiday Days Entitlement is required.</p>")
+    if (holDaysEntitlement.length == 0) {
+        $(".errorHolDaysEntitlement").empty();
+        $(".errorHolDaysEntitlement").append("<p>Holiday Days Entitlement is required.</p>");
         sw = true;
-    } else {
+    } else if (isNaN(holDaysEntitlement)) {
+        $(".errorHolDaysEntitlement").empty();
+        $(".errorHolDaysEntitlement").append("<p>Holiday Days Entitlement must be a number.</p>");
+        sw = true;
+	} else {
         $(".errorHolDaysEntitlement").empty();
         sw = false;
     }
 
-    if(salary.length == 0) {
-        $(".errorSalary").append("<p>Salary is required.</p>")
+    if (salary.length == 0) {
+    	$(".errorSalary").empty();
+        $(".errorSalary").append("<p>Salary is required.</p>");
+        sw = true;
+    } else if (isNaN(salary))  {
+    	$(".errorSalary").empty();
+        $(".errorSalary").append("<p>Salary must be a number.</p>");
         sw = true;
     } else {
-        $(".errorSalary").empty();
+    	$(".errorSalary").empty();
         sw = false;
     }
 
-    if(password.length == 0) {
-        $(".errorPassword").append("<p>Password is required.</p>")
+    if (password.length == 0) {
+        $(".errorPassword").empty();
+        $(".errorPassword").append("<p>Password is required.</p>");
         sw = true;
     } else {
         $(".errorPassword").empty();
         sw = false;
     }
 
-    if(department == null) {
-        $(".errorDepartment").append("<p>Department is required.</p>")
+    if (department == null) {
+        $(".errorDepartment").empty();
+        $(".errorDepartment").append("<p>Department is required.</p>");
         sw = true;
     } else {
         $(".errorDepartment").empty();
         sw = false;
     }
 
-    if(role == undefined) {
-        $(".errorRole").append("<p>Role is required.</p>")
+    if (role == null) {
+        $(".errorRole").empty();
+        $(".errorRole").append("<p>Role is required.</p>");
         sw = true;
     } else {
         $(".errorRole").empty();
@@ -114,4 +131,4 @@ function validateEmployeeAddForm() {
     }
 
 }
-
+s

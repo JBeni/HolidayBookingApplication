@@ -30,18 +30,6 @@
 			   });
 			});
 	      </script>
-
-		<script type="text/javascript">
-/*
-			window.onload = function() {
-				$('#select-role').attr('disabled','disabled');
-			}
-	
-			function changeFunc() {
-				$('#select-role').attr('disabled','disabled');
-			}
-*/
-		</script>
 	</head>
 
 	<body class="h-100">
@@ -108,7 +96,7 @@
 	
 			<div class="form-group">
 				<label>Select a Department</label>
-				<select class="select form-control" id="selectedEmployeeDepartment" name="selectedEmployeeDepartment" onchange="changeFunc();">
+				<select class="select form-control" id="selectedEmployeeDepartment" name="selectedEmployeeDepartment">
 					<option class="form-control" value="" selected="selected" disabled="disabled">Select an department:</option>
 					<%
 						@SuppressWarnings("unchecked")
@@ -124,7 +112,7 @@
 			</div>
 			<div class="form-group">
 				<label>Select a Role</label>
-				<select id="select-role" class="select form-control" id="selectedEmployeeRole" name="selectedEmployeeRole">
+				<select class="select form-control" id="selectedEmployeeRole" name="selectedEmployeeRole">
 					<option class="form-control" value="" selected="selected" disabled="disabled">Select a role:</option>
 					<%
 						@SuppressWarnings("unchecked")
