@@ -10,12 +10,12 @@
 	<head>
 		<title>Add new Employee</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	
+
 		<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-		<script src="js/validationEmployee.js"></script>
+		<script src="js/validateAddEmployee.js"></script>
 		<link href="css/styles.css" rel="stylesheet" type="text/css">
 
 		  <!-- Cod taken from https://www.tutorialspoint.com/jqueryui/jqueryui_datepicker.htm -->
@@ -127,7 +127,7 @@
 				<div class="errorRole"></div>
 			</div>
 
-			<button style="margin-bottom: 10px;" id="submitButton" type="submit">Submit</button>
+			<button style="margin-bottom: 10px;" id="submitAddButton" type="submit">Submit</button>
 			<a href="EmployeesServlet">Back</a>
 		</form>
 	</body>

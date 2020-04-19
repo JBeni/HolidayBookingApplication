@@ -4206,3 +4206,273 @@ java.lang.RuntimeException
 
 !ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 21:35:43.015
 !MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:53:49.926
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 21:53:55.876
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 21:53:55.901
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 21:54:11.413
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 21:54:15.931
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.ui 2 0 2020-04-19 21:54:15.935
+!MESSAGE Server stopped before before browser could be opened.
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:54:16.704
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 4 16973825 2020-04-19 21:54:18.492
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 21:54:18.511
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+!SESSION 2020-04-19 21:54:25.684 -----------------------------------------------
+eclipse.buildId=4.15.0.I20200305-0155
+java.version=1.8.0_241
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-04-19 21:54:35.265
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Beni'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface 2 0 2020-04-19 21:54:56.185
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:764)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:543)
+	at org.eclipse.ui.navigator.CommonViewer.update(CommonViewer.java:515)
+	at org.eclipse.jface.viewers.StructuredViewer.update(StructuredViewer.java:1976)
+	at org.eclipse.ui.internal.navigator.resources.nested.NestedProjectsLabelProvider.lambda$2(NestedProjectsLabelProvider.java:87)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:670)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:646)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1609)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1596)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:54:58.160
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 21:55:05.844
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 21:55:05.888
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 21:55:13.033
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:55:19.245
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 21:55:25.299
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 21:55:25.330
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 21:55:25.904
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 21:55:45.347
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 21:57:02.176
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:57:09.262
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 21:57:15.312
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 21:57:15.326
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 21:57:35.336
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 21:58:45.800
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:58:51.842
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 21:58:57.716
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 21:58:57.746
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 21:59:17.760
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 21:59:51.315
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 21:59:56.848
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:00:03.016
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:00:03.036
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:00:23.050
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:03:33.970
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:03:39.047
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:03:45.101
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:03:45.123
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:04:05.134
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:04:33.544
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:04:38.637
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:04:45.799
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:04:45.819
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:05:05.831
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:05:10.405
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:05:15.057
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:05:21.907
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:05:21.925
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:05:41.935
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:05:43.066
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:05:50.788
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:05:58.853
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:05:58.901
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:06:18.924
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:07:03.520
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:07:35.579
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:07:42.551
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:07:42.590
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:08:02.602
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:11:38.784
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:11:44.808
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:11:50.662
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:11:50.680
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:12:10.691
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:12:24.958
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:14:03.165
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:14:09.023
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:14:09.039
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:14:29.049
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:15:16.269
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:15:22.012
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:15:28.551
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:15:28.578
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:15:48.590
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:17:31.359
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2020-04-19 22:19:19.863
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2020-04-19 22:19:25.913
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 0 2020-04-19 22:19:25.936
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost not yet fully deployed. Waiting...
+
+!ENTRY org.jboss.ide.eclipse.as.core 2 0 2020-04-19 22:19:45.950
+!MESSAGE Module HolidayBookingAppWebApplication on WildFly 17 at localhost still not ready to be shown in browser. Aborting delay.
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2020-04-19 22:23:58.147
+!MESSAGE Server processes have terminated prematurely. Please check your server logs for more details. 

@@ -54,8 +54,6 @@ public class EditEmployeeServlet extends HttpServlet {
 				request.setAttribute("employeeRoles", employeeRoles);
 	
 		    	request.getRequestDispatcher("/editemployee.jsp").forward(request, response);
-			} else {
-				// error
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
