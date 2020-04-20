@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.jms.MapMessage"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.CycleRecoverable.Context"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.BookingRequestAppBeanRemote"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
@@ -42,7 +41,6 @@
 <fullyQualifiedTypeName name="javax.ejb.Schedule"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.HolidaySystemAppBeanRemote"/>
 <fullyQualifiedTypeName name="entityclasses.EmployeeDTO"/>
-<fullyQualifiedTypeName name="javax.ejb.EJB"/>
 <fullyQualifiedTypeName name="ejbholidaybookingutilsapp.LoggerFactory"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.HolidayRemainingAppBeanRemote"/>
@@ -54,10 +52,12 @@
 <fullyQualifiedTypeName name="model.TEmployee"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.DepartmentAppBeanRemote"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeRoleAppBeanRemote"/>
-<fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeAppBeanRemote"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="models.EmployeeDataObject"/>
 <fullyQualifiedTypeName name="models_non_db.EmployeeDataObject"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeAppBeanRemote"/>
+<fullyQualifiedTypeName name="javax.ejb.EJB"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
 </qualifiedTypeNameHistroy>

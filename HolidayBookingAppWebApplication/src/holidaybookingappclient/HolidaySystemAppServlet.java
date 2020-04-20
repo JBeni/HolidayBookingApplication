@@ -1,7 +1,6 @@
 package holidaybookingappclient;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -51,6 +50,7 @@ public class HolidaySystemAppServlet extends HttpServlet {
 				if (roleId == 1 || roleId == 2) {
 					HttpSession session = request.getSession(false);
 					session.setAttribute("username", "admin");
+					session.setAttribute("userId", user.getId());
 					response.sendRedirect("EmployeesServlet");
 				} else if (roleId != 0) {
 					HttpSession session = request.getSession(false);

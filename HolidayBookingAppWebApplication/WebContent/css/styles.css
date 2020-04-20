@@ -43,3 +43,13 @@
 .errorRole {
 	color: red;
 }
+
+.errorChangePassword {
+	margin-top: 10px;
+	color: red;
+}
+
+.errorChangeNewPassword {
+	margin-top: 10px;
+	color: red;
+}

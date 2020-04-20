@@ -33,7 +33,7 @@
 			    	<%
 						}
 			    	%>
-					<a class="navbar-brand" href="BookingRequestServlet">Change Password</a>
+					<a class="navbar-brand" href="ChangePasswordServlet">Change Password</a>
 					<a class="navbar-brand" href="LogoutServlet">Logout</a>
 		    	</div>
 			</div>

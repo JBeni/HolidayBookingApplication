@@ -5,20 +5,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Employee Page</title>
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 		<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
 
 		<script type="text/javascript">
-			$(document).ready(function(){
-			    $("#deleted-employees").hide();
-			});
+			$(document).ready(function() {
+		    	$('#deletedEmployees').hide();
 
-			function buttonClicked() {
-				$('#del').toggle();
-				$('#del').unhide();
-			}
+		    	$("#showDeleteEmployeesButton").click(function() {
+			    	$('#deletedEmployees').show();
+			    });
+		    	$("#hideDeleteEmployeesButton").click(function() {
+			    	$('#deletedEmployees').hide();
+			    });
+			});
 		</script>
 	</head>
 
@@ -32,23 +38,13 @@
 			response.sendRedirect("HolidaySystemAppServlet");
 		}
 	%>
-		<div class="row">
-			<div class="col-md-6">
-				<h3>Employees</h3>
-			</div>
-		</div>
-
 		<div>
 			<a href="NewEmployeeServlet">
-			<button class="btn btn-warning">Add New Employee</button></a>
-		</div>
-		<div>
-			<a href="BookingRequestServlet">
-				<button class="btn btn-warning">Holidays</button>
-			</a>
+			<button class="btn btn-warning mt-3">Add New Employee</button></a>
 		</div>
 	</div>
-	<table id="del" class="table table-bordered table-striper table-hover">
+
+	<table class="table table-bordered table-striper table-hover mt-3">
 		<tr>
 			<th>FirstName</th>
 			<th>LastName</th>
@@ -83,8 +79,11 @@
 	</table>
 
 	<p>Show all deleted users</p>
-	<button onchange="buttonClicked();">Show Employees</button>
-	<table id="deleted-employees" class="table table-bordered table-striper table-hover">
+	<p>
+		<button id="showDeleteEmployeesButton">Show</button>
+		<button id="hideDeleteEmployeesButton">Hide</button>
+	</p>
+	<table id="deletedEmployees" class="table table-bordered table-striper table-hover">
 		<tr>
 			<th>FirstName</th>
 			<th>LastName</th>

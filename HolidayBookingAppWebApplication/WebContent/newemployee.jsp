@@ -3,7 +3,6 @@
 <%@ page import="java.util.*"%>
 <%@ page import="entityclasses.DepartmentDTO"%>
 <%@ page import="entityclasses.EmployeeRoleDTO"%>
-<%@ page import="models_non_db.EmployeeDataObject"%>
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +33,7 @@
 
 	<body class="h-100">
 		<%@ include file="menu.jsp" %>
-	
+
 		<%
 			String isLogin = (String) session.getAttribute("username");
 			if (isLogin != "admin") {
