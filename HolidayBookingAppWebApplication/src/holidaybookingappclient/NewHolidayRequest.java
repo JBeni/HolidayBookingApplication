@@ -23,7 +23,7 @@ public class NewHolidayRequest extends HttpServlet {
 	@EJB
 	private BookingRequestAppBeanRemote bookingRequestAppBeanRemote;
 
-	private static final Logger logger = Logger.getLogger(BookingRequestServlet.class);
+	private static final Logger logger = Logger.getLogger(NewHolidayRequest.class);
 
     public NewHolidayRequest() {
         super();
@@ -54,6 +54,10 @@ public class NewHolidayRequest extends HttpServlet {
 			int userId = Integer.parseInt(session.getAttribute("userId").toString());
 			PeakTimeDTO peakTime = bookingRequestAppBeanRemote.getTheNotPeakTime();
 			StatusDTO status = bookingRequestAppBeanRemote.getPendingStatus();
+
+			// check for constraints
+
+
 
 			HolidayRequestDTO newHolidayRequest = new HolidayRequestDTO(0, startDate, endDate, holidayDuration, userId, peakTime.getIdPeakTime(), status.getIdStatus(), null);
 			bookingRequestAppBeanRemote.addHolidayRequest(newHolidayRequest);

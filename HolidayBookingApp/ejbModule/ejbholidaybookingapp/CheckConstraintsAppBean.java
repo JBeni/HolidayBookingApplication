@@ -1,6 +1,8 @@
 package ejbholidaybookingapp;
 
+import java.sql.Date;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -13,6 +15,7 @@ import entityclasses.HolidayRequestDTO;
 import model.TDepartment;
 import model.TEmployee;
 import model.THolidayBooking;
+import model.THolidayRemaining;
 import model.THolidayRequest;
 
 @Stateless
@@ -25,7 +28,6 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
     public CheckConstraintsAppBean() {
     }
 
-    // • No employee can exceed the number of days of holiday entitlement [COMPLETED]
 	@Override
 	public HolidayRequestDTO getHolidayRequestById(int id) {
 		THolidayRequest holidayRequest = (THolidayRequest) entityManager
@@ -37,21 +39,40 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 					holidayRequest.getEmployee().getId(), holidayRequest.getPeakTime().getIdPeakTime(),
 					holidayRequest.getStatus().getIdStatus(), holidayRequest.getStatus().getStatusName()
 				);
-
-		TEmployee employee = (TEmployee) entityManager
-				.createQuery("SELECT e FROM TEmployee e WHERE e.id = :id")
-				.setParameter("id", holidayRequest.getEmployee().getId()).getResultList().get(0);
-		// employee.getHolDaysEntitlement();
 		return holidayRequestDTO;
 	}
 
-	// de refacut
 	@Override
-	public int getHolidayDaysRemainingById(int id) {
-		THolidayRequest holidayRequest = (THolidayRequest) entityManager
-				.createQuery("SELECT e FROM THolidayRequest e WHERE e.idRequest = :id")
+	public List<String> checkHolidayConstraints(Date startDate, Date endDate) {
+		List<String> error = new ArrayList<>();
+/*
+		if (numar de zile valabile == false) {
+			error.add("Your holiday have more days than your holiday remaining days.");
+		}
+		if (este un head or deputy head la lucru == false) {
+			error.add("A Head or a Deputy Head member of the department must be on duty.");
+		}
+		if (este cel putin un manager la lucru == false) {
+			error.add("At least one manager member of the department must be on duty.");
+		}
+		if (este cel putin un senior la lucru == false) {
+			error.add("At least one senior member of the department must be on duty.");
+		}
+		if (numarul de angati la lucru este 60 din dimensiunea total a departamentului == false) {
+			error.add("The size of the department on duty must be 60% from the total size of the department.");
+		}
+*/
+		return error;
+	}
+
+
+	// • No employee can exceed the number of days of holiday entitlement [COMPLETED]
+	@Override
+	public int getHolidayDaysRemaining(int id) {
+		THolidayRemaining holidayRequest = (THolidayRemaining) entityManager
+				.createQuery("SELECT e FROM THolidayRemaining e WHERE e.idHolRemaining = :id")
 				.setParameter("id", id).getResultList().get(0);
-		return 0;
+		return holidayRequest.getHolidayDaysRemaining();
 	}
 
 	@Override
@@ -62,12 +83,18 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 		return employee.getHolDaysEntitlement();
 	}
 
+	@Override
+	public boolean checkAvailableHolidayDaysRemaining(int holDaysRemaining, int holidayDuration) {
+		if (holidayDuration > holDaysRemaining) {
+			// request could not be made
+			return false;
+		}
+		return true;
+	}
 
-
-	// verifica daca departamentul va avea la munca 60% din dimensiunea totala a departamentului
     // • At least 60% of a department must be on duty [COMPLETED]
 	//@Override
-	public boolean checkDepartmentRequiredSizeGlobalConstraint(int idDep, java.util.Date holidayStart, java.util.Date holidayEnd) {
+	public boolean checkAvailableDepartmentRequiredSizeGlobalConstraint(int idDep, Date holidayStart, Date holidayEnd) {
 		TDepartment department = (TDepartment) entityManager
 				.createQuery("SELECT e FROM TDepartment e WHERE e.idDep = :id")
 				.setParameter("id", idDep).getResultList().get(0);
@@ -86,22 +113,9 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 		return true;
 	}
 
-
-	// REFACEREA METODEI
-	@Override
-	public boolean checkHolidayDaysRemaining(int userId, int bookingId) {
-		THolidayRequest holidayRequest = (THolidayRequest) entityManager
-				.createQuery("SELECT e FROM THolidayRequest e WHERE e.employee.id = :userId")
-				.setParameter("userId", userId).getResultList().get(0);
-
-		return false;
-	}
-
 	@Override
 	public boolean checkHeadOrDeputyHeadAvailable(String roleName, String departmentName) {
 		if (roleName == "Head" || roleName == "Deputy Head") {
-			// verifica daca exista la munca un head ori un deputy head
-
 			TDepartment department = (TDepartment) entityManager
 					.createQuery("SELECT e FROM TDepartment e WHERE e.nameDep = :nameDep")
 					.setParameter("nameDep", departmentName).getResultList().get(0);
@@ -114,84 +128,55 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 					.setParameter("deputyHead", "Deputy Head").getResultList();
 
 			if (holidayBooking.size() == 0) {
-				// nu avem nici o persoana de acel tip in vacanta
-				// return true;
+				return true;
 			}
-
-			// dupa
-
-			// verifica daca departamentul va avea la munca 60% din dimensiunea totala a departamentului
 		}
 		return false;
 	}
 
 	@Override
 	public boolean checkSeniorStaffAvailable(String roleName, String departmentName) {
-		if (roleName == "Manager" || roleName == "Senior member") {
-			// verifica daca exista la munca cel putin un senior si un manager
+		if (roleName == "Senior member") {
+			// the numbers of senior that are in holiday
+			@SuppressWarnings("unchecked")
+			List<TEmployee> seniorEmployeesHoliday = (List<TEmployee>) entityManager
+					.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :seniorRole")
+					.setParameter("nameDep", departmentName).setParameter("seniorRole", "Senior member").getResultList();
 
-			// dupa
+			// get the total number of senior from a department
+			@SuppressWarnings("unchecked")
+			List<TEmployee> seniorEmployees = (List<TEmployee>) entityManager
+					.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :senior")
+					.setParameter("nameDep", departmentName).setParameter("senior", "Senior member").getResultList();
 
-			// verifica daca departamentul va avea la munca 60% din dimensiunea totala a departamentului
+			if (seniorEmployees.size() - seniorEmployeesHoliday.size() > 1) {
+				return true;
+	 		}
 		}
-
-		TDepartment department = (TDepartment) entityManager
-				.createQuery("SELECT e FROM TDepartment e WHERE e.nameDep = :nameDep")
-				.setParameter("nameDep", departmentName).getResultList().get(0);
-
-		// the numbers of manager that are in holiday
-		@SuppressWarnings("unchecked")
-		List<TEmployee> managerEmployeesHoliday = (List<TEmployee>) entityManager
-				.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :managerRole")
-				.setParameter("nameDep", departmentName).setParameter("managerRole", "Manager").getResultList();
-
-		// get the total number of manager from a department
-		@SuppressWarnings("unchecked")
-		List<TEmployee> managerEmployees = (List<TEmployee>) entityManager
-				.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :manager")
-				.setParameter("nameDep", departmentName).setParameter("manager", "Manager").getResultList();
-
-		if (managerEmployees.size() - managerEmployeesHoliday.size() > 1) {
-			return true;
-		}
-
 		return false;
 	}
 
 	@Override
 	public boolean checkManagerStaffAvailable(String roleName, String departmentName) {
-		if (roleName == "Manager" || roleName == "Senior member") {
-			// verifica daca exista la munca cel putin un senior si un manager
+		if (roleName == "Manager") {
+			// the numbers of manager that are in holiday
+			@SuppressWarnings("unchecked")
+			List<TEmployee> managerEmployeesHoliday = (List<TEmployee>) entityManager
+					.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :managerRole")
+					.setParameter("nameDep", departmentName).setParameter("managerRole", "Manager").getResultList();
 
-			// dupa
+			// get the total number of manager from a department
+			@SuppressWarnings("unchecked")
+			List<TEmployee> managerEmployees = (List<TEmployee>) entityManager
+					.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :manager")
+					.setParameter("nameDep", departmentName).setParameter("manager", "Manager").getResultList();
 
-			// verifica daca departamentul va avea la munca 60% din dimensiunea totala a departamentului
+			if (managerEmployees.size() - managerEmployeesHoliday.size() > 1) {
+				return true;
+			}
 		}
-
-		TDepartment department = (TDepartment) entityManager
-				.createQuery("SELECT e FROM TDepartment e WHERE e.nameDep = :nameDep")
-				.setParameter("nameDep", departmentName).getResultList().get(0);
-
-		// the numbers of senior that are in holiday
-		@SuppressWarnings("unchecked")
-		List<TEmployee> seniorEmployeesHoliday = (List<TEmployee>) entityManager
-				.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :seniorRole")
-				.setParameter("nameDep", departmentName).setParameter("seniorRole", "Senior member").getResultList();
-
-		// get the total number of senior from a department
-		@SuppressWarnings("unchecked")
-		List<TEmployee> seniorEmployees = (List<TEmployee>) entityManager
-				.createQuery("SELECT e FROM TEmployee e WHERE e.department.nameDep = :nameDep and e.employeeRole.nameEmpRole = :senior")
-				.setParameter("nameDep", departmentName).setParameter("senior", "Senior member").getResultList();
-
-		if (seniorEmployees.size() - seniorEmployeesHoliday.size() > 1) {
-			return true;
- 		}
-
 		return false;
 	}
-
-
 
 	@Override
 	public int getDepartmentRequiredSizeGlobalConstraint(int idDep) {
@@ -212,49 +197,7 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 	}
 
 
-
-	@Override
-	public boolean checkDepartmentRequiredSizeGlobalConstraint(int department) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean checkDepartmentRequiredSizeAugustMonthConstraint(int department) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
-
-/*
-	The following constraints are applying at the time:
-	    • No employee can exceed the number of days of holiday entitlement []
-	    • Either the head or the deputy head of the department must be on duty [COMPLETED]
-	    • At least one manager and one senior staff member must be on duty [COMPLETED]
-	    • At least 60% of a department must be on duty [COMPLETED]
-
-	In the month of August, the following constraints are applying:
-	    • No employee can exceed the number of days of holiday entitlement
-	    • Either the head or the deputy head of the department must be on duty
-	    • At least one manager and one senior staff member must be on duty
-	    • At least 40% of a department must be on duty
-
-	1) Exceptions from those constraints between the 23rd of December to the 3rd January of every year. [COMPLETED]
-
-	Holiday requests are manually approved by a Head of Department.
-
-	When the system lists holiday requests, it should identify those when
-	break constraints and shouldn’t allow them to be approved. Also, when
-	staff apply for holiday the system should prioritise staff who have had
-	a lower number of holidays in the current year, followed by those who
-	have fewer days in the peak time periods, so requests should be listed
-	in order of priority (highest priority first). If the approval of one
-	request means that others now no longer fulfil the constraints, then
-	the system would need to identify them and not allow them to be approved.
-*/
-
+	// Constraints for December Holiday Only
 	@Override
 	public void checkRequestForDecemberHoliday(String beginDate, String endDate) throws ParseException {
 		try {

@@ -2,6 +2,8 @@ package holidaybookingappclient;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -10,19 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.log4j.Logger;
-import ejbholidaybookingapp.EmployeeAppBeanRemote;
 
-@WebServlet("/CheckOldUserPassword")
-public class CheckOldUserPassword extends HttpServlet {
+import org.apache.log4j.Logger;
+
+import ejbholidaybookingapp.CheckConstraintsAppBeanRemote;
+import ejbholidaybookingutilsapp.HolidayUtilsClass;
+
+@WebServlet("/CheckingHolidayContraints")
+public class CheckingHolidayContraints extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private EmployeeAppBeanRemote employeeAppBean;
+	private CheckConstraintsAppBeanRemote checkConstraintsAppBean;
 
-	private static final Logger logger = Logger.getLogger(CheckOldUserPassword.class);
+	private static final Logger logger = Logger.getLogger(CheckingHolidayContraints.class);
 
-    public CheckOldUserPassword() {
+    public CheckingHolidayContraints() {
         super();
     }
 
@@ -38,12 +43,12 @@ public class CheckOldUserPassword extends HttpServlet {
 				response.sendRedirect("BookingRequestServlet");
 			}
 
-			int userId = (int) session.getAttribute("userId");
-			String oldPassword = request.getParameter("oldPassword");
-			boolean validPassword = employeeAppBean.checkUserPassword(userId, oldPassword);
+			Date startDate = HolidayUtilsClass.formatDateFromString(request.getParameter("startDate"));
+			Date endDate = HolidayUtilsClass.formatDateFromString(request.getParameter("endDate"));
+			List<String> errorsList = checkConstraintsAppBean.checkHolidayConstraints(startDate, endDate);
 
 			PrintWriter out = response.getWriter();
-			out.print(validPassword);
+			out.print(errorsList);
 			out.flush();
 			out.close();
 		} catch (Exception e) {

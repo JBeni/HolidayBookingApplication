@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="java.util.Date"/>
+			<item value="checkHolidayDaysRemaining"/>
 			<item value="isUserAdmin"/>
 			<item value="&quot;BookingRequestServlet&quot;"/>
 			<item value="debugg"/>
@@ -21,8 +23,6 @@
 			<item value="cadastrar.jsp"/>
 			<item value="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&lt;a href=&quot;?id=&lt;%=%&gt;&quot;&gt;"/>
 			<item value="getNameDep()"/>
-			<item value="                        &lt;driver-class&gt;com.mysql.cj.jdbc.Driver&lt;/driver-class&gt;"/>
-			<item value="DEP"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

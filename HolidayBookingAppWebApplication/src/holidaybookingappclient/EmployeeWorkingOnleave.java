@@ -27,7 +27,7 @@ public class EmployeeWorkingOnleave extends HttpServlet {
 	@EJB
 	private BookingAppBeanRemote bookingAppBeanRemote;
 
-	private static final Logger logger = Logger.getLogger(BookingRequestServlet.class);
+	private static final Logger logger = Logger.getLogger(EmployeeWorkingOnleave.class);
 
     public EmployeeWorkingOnleave() {
         super();
