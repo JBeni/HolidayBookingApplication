@@ -36,7 +36,7 @@ public class NewHolidayRequest extends HttpServlet {
 			if (isUserValid == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
 			}
-			
+
 			request.getRequestDispatcher("/newholidayrequest.jsp").forward(request, response);
 		} catch (Exception e) {
 			logger.error(e.getMessage());

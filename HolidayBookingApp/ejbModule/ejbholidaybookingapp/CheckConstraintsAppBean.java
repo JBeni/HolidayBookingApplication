@@ -43,25 +43,27 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 	}
 
 	@Override
-	public List<String> checkHolidayConstraints(Date startDate, Date endDate) {
+	public List<String> checkHolidayConstraints(int idHolRemaining, int holDuration, int idDep, String roleName,String departmentName,
+			Date startDate, Date endDate) {
 		List<String> error = new ArrayList<>();
-/*
-		if (numar de zile valabile == false) {
+		int holDaysRemaining = getHolidayDaysRemaining(idHolRemaining);
+
+		if (checkAvailableHolidayDaysRemaining(holDaysRemaining, holDuration) == false) {
 			error.add("Your holiday have more days than your holiday remaining days.");
 		}
-		if (este un head or deputy head la lucru == false) {
+		if (checkHeadOrDeputyHeadAvailable(roleName, departmentName) == false) {
 			error.add("A Head or a Deputy Head member of the department must be on duty.");
 		}
-		if (este cel putin un manager la lucru == false) {
+		if (checkManagerStaffAvailable(roleName, departmentName) == false) {
 			error.add("At least one manager member of the department must be on duty.");
 		}
-		if (este cel putin un senior la lucru == false) {
+		if (checkSeniorStaffAvailable(roleName, departmentName) == false) {
 			error.add("At least one senior member of the department must be on duty.");
 		}
-		if (numarul de angati la lucru este 60 din dimensiunea total a departamentului == false) {
+		if (checkAvailableDepartmentRequiredSizeGlobalConstraint(idDep, startDate, endDate) == false) {
 			error.add("The size of the department on duty must be 60% from the total size of the department.");
 		}
-*/
+
 		return error;
 	}
 
@@ -101,8 +103,8 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 
 		@SuppressWarnings("unchecked")
 		List<THolidayBooking> holidayBooking = (List<THolidayBooking>) entityManager
-				.createQuery("SELECT e FROM THolidayBooking e WHERE e.department.idDep = :idDep and e.bookingBeginDate >= :holidayStart and e.bookingEndDate <= :holidayEnd")
-				.setParameter("idDep", department.getIdDep()).setParameter("holidayStart", holidayStart)
+				.createQuery("SELECT e FROM THolidayBooking e WHERE e.department.idDep = :id and e.bookingBeginDate >= :holidayStart and e.bookingEndDate <= :holidayEnd")
+				.setParameter("id", department.getIdDep()).setParameter("holidayStart", holidayStart)
 				.setParameter("holidayEnd", holidayEnd).getResultList();
 
 		int departmentSize = getDepartmentRequiredSizeGlobalConstraint(idDep);
@@ -181,21 +183,21 @@ public class CheckConstraintsAppBean implements CheckConstraintsAppBeanRemote {
 	@Override
 	public int getDepartmentRequiredSizeGlobalConstraint(int idDep) {
 		TDepartment department = (TDepartment) entityManager
-				.createQuery("SELECT e FROM TDepartment e WHERE e.idDep = :idDep")
+				.createQuery("SELECT e FROM TDepartment e WHERE e.idDep = :id")
 				.setParameter("id", idDep).getResultList().get(0);
 		int requiredDepartSize = department.getIdDep() * (60 / 100);
 		return requiredDepartSize;
 	}
 
+
 	@Override
 	public int getDepartmentRequiredSizeAugustMonthConstraint(int idDep) {
 		TDepartment department = (TDepartment) entityManager
-				.createQuery("SELECT e FROM TDepartment e WHERE e.idDep = :idDep")
+				.createQuery("SELECT e FROM TDepartment e WHERE e.idDep = :id")
 				.setParameter("id", idDep).getResultList().get(0);
 		int requiredDepartSize = department.getIdDep() * (40 / 100);
 		return requiredDepartSize;
 	}
-
 
 	// Constraints for December Holiday Only
 	@Override

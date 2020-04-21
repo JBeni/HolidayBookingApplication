@@ -16,7 +16,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 import ejbholidaybookingapp.CheckConstraintsAppBeanRemote;
+import ejbholidaybookingapp.EmployeeAppBeanRemote;
+import ejbholidaybookingapp.HolidayRemainingAppBeanRemote;
 import ejbholidaybookingutilsapp.HolidayUtilsClass;
+import entityclasses.EmployeeDTO;
+import entityclasses.HolidayRemainingDTO;
 
 @WebServlet("/CheckingHolidayContraints")
 public class CheckingHolidayContraints extends HttpServlet {
@@ -24,6 +28,12 @@ public class CheckingHolidayContraints extends HttpServlet {
 
 	@EJB
 	private CheckConstraintsAppBeanRemote checkConstraintsAppBean;
+
+	@EJB
+	private HolidayRemainingAppBeanRemote holidayRemainingAppBean;
+
+	@EJB
+	private EmployeeAppBeanRemote employeeAppBean;
 
 	private static final Logger logger = Logger.getLogger(CheckingHolidayContraints.class);
 
@@ -37,18 +47,21 @@ public class CheckingHolidayContraints extends HttpServlet {
 			String isUserValid = (String) session.getAttribute("username");
 			if (isUserValid == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
-			} else if (isUserValid == "admin") {
-				response.sendRedirect("EmployeesServlet");
-			} else if (isUserValid == "standard-user") {
-				response.sendRedirect("BookingRequestServlet");
 			}
 
 			Date startDate = HolidayUtilsClass.formatDateFromString(request.getParameter("startDate"));
 			Date endDate = HolidayUtilsClass.formatDateFromString(request.getParameter("endDate"));
-			List<String> errorsList = checkConstraintsAppBean.checkHolidayConstraints(startDate, endDate);
+
+			int userId = (int) session.getAttribute("userId");
+			HolidayRemainingDTO holRemaining = holidayRemainingAppBean.getHolidayRemainingByUserId(userId);
+			EmployeeDTO employee = employeeAppBean.getEmployeeById(userId);
+			int holDuration = (int) HolidayUtilsClass.countWeekDaysMath(startDate, endDate);
+
+			List<String> errorsList = checkConstraintsAppBean.checkHolidayConstraints(holRemaining.getIdHolRemaining(), holDuration,
+					employee.getIdDep(), employee.getNameEmpRole(), employee.getNameDep(), startDate, endDate);
 
 			PrintWriter out = response.getWriter();
-			out.print(errorsList);
+			out.print(errorsList.toString());
 			out.flush();
 			out.close();
 		} catch (Exception e) {

@@ -32,10 +32,6 @@ public class CheckOldUserPassword extends HttpServlet {
 			String isUserValid = (String) session.getAttribute("username");
 			if (isUserValid == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
-			} else if (isUserValid == "admin") {
-				response.sendRedirect("EmployeesServlet");
-			} else if (isUserValid == "standard-user") {
-				response.sendRedirect("BookingRequestServlet");
 			}
 
 			int userId = (int) session.getAttribute("userId");

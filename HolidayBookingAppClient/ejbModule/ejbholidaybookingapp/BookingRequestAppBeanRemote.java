@@ -17,6 +17,7 @@ public interface BookingRequestAppBeanRemote {
 	StatusDTO getStatusByName(String statusName);
 	PeakTimeDTO getTheNotPeakTime();
 	List<HolidayRequestDTO> getAllHolidayRequests();
+	List<HolidayRequestDTO> getHolidayRequestByUserId(int userId);
 	HolidayRequestDTO getHolidayRequestById(int id);
 	boolean addHolidayRequest(HolidayRequestDTO holidayRequest);
 

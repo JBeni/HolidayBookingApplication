@@ -54,5 +54,30 @@
 	color: red;
 }
 
+
 /* Errors for Constraints */
+.errorHolidayDaysRemaining {
+	margin-top: 10px;
+	color: red;
+}
+
+.errorHeadOrDeputyHeadAvailable {
+	margin-top: 4px;
+	color: red;
+}
+
+.errorManagerAvailable {
+	margin-top: 4px;
+	color: red;
+}
+
+.errorSeniorMemberAvailable {
+	margin-top: 4px;
+	color: red;
+}
+
+.errorDepartmentSizeAvailable {
+	margin-top: 4px;
+	color: red;
+}
 

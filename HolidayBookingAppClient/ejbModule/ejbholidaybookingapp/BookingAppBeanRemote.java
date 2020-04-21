@@ -9,6 +9,7 @@ import entityclasses.HolidayRequestDTO;
 @Remote
 public interface BookingAppBeanRemote {
 	List<HolidayBookingDTO> getAllHolidayBookings();
+	List<HolidayBookingDTO> getHolidayBookingsByUserId(int userId);
 	boolean addHolidayBooking(HolidayBookingDTO holidayBooking);
 	boolean changeHolidayRequestStatus(HolidayRequestDTO holRequest, String status);
 }

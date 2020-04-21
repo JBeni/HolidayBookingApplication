@@ -37,10 +37,7 @@
 <fullyQualifiedTypeName name="javax.ejb.Stateless"/>
 <fullyQualifiedTypeName name="javax.ejb.Schedule"/>
 <fullyQualifiedTypeName name="ejbholidaybookingapp.HolidaySystemAppBeanRemote"/>
-<fullyQualifiedTypeName name="entityclasses.EmployeeDTO"/>
 <fullyQualifiedTypeName name="ejbholidaybookingutilsapp.LoggerFactory"/>
-<fullyQualifiedTypeName name="ejbholidaybookingapp.HolidayRemainingAppBeanRemote"/>
-<fullyQualifiedTypeName name="entityclasses.HolidayRemainingDTO"/>
 <fullyQualifiedTypeName name="javax.ejb.LocalBean"/>
 <fullyQualifiedTypeName name="entityclasses.EmployeeRoleDTO"/>
 <fullyQualifiedTypeName name="model.TEmployeeRole"/>
@@ -51,7 +48,6 @@
 <fullyQualifiedTypeName name="models_non_db.EmployeeDataObject"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
-<fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeAppBeanRemote"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="model.THolidayRemaining"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="ejbholidaybookingapp.CheckConstraintsAppBeanRemote"/>
 <fullyQualifiedTypeName name="javax.ejb.EJB"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="ejbholidaybookingapp.HolidayRemainingAppBeanRemote"/>
+<fullyQualifiedTypeName name="entityclasses.HolidayRemainingDTO"/>
+<fullyQualifiedTypeName name="ejbholidaybookingapp.EmployeeAppBeanRemote"/>
+<fullyQualifiedTypeName name="entityclasses.EmployeeDTO"/>
 </qualifiedTypeNameHistroy>

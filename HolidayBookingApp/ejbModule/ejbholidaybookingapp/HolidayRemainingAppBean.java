@@ -47,6 +47,17 @@ public class HolidayRemainingAppBean implements HolidayRemainingAppBeanRemote {
 	}
 
 	@Override
+	public HolidayRemainingDTO getHolidayRemainingByUserId(int userId) {
+		THolidayRemaining holRemaining = (THolidayRemaining) entityManager
+				.createQuery("SELECT e FROM THolidayRemaining e WHERE e.employee.id = :idReq")
+				.setParameter("idReq", userId).getResultList().get(0);
+		HolidayRemainingDTO newHolRemaining = new HolidayRemainingDTO(holRemaining.getIdHolRemaining(), holRemaining.getHolidayDaysRemaining(),
+				holRemaining.getOneYearDateCheck(), holRemaining.getFiveYearDateCheck(), holRemaining.getEmployee().getId()
+			);
+		return newHolRemaining;
+	}
+
+	@Override
 	public void addHolRemainingRecord(HolidayRemainingDTO holRemaining) {
 		try {
 			TEmployee employee = entityManager.find(TEmployee.class, holRemaining.getIdEmp());

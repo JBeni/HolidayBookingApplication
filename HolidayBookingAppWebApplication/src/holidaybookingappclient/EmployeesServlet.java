@@ -33,7 +33,7 @@ public class EmployeesServlet extends HttpServlet {
 			String isUserValid = (String) session.getAttribute("username");
 			if (isUserValid == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
-			} else if (isUserValid == "standard-user") {
+			} else if (isUserValid.equals("standard-user")) {
 				response.sendRedirect("BookingRequestServlet");
 			}
 

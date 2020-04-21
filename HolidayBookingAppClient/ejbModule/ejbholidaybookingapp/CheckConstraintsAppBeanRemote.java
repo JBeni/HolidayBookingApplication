@@ -22,7 +22,8 @@ public interface CheckConstraintsAppBeanRemote {
 	int getDepartmentRequiredSizeGlobalConstraint(int idDep);
 	int getDepartmentRequiredSizeAugustMonthConstraint(int idDep);
 
-	List<String> checkHolidayConstraints(Date startDate, Date endDate);
+	List<String> checkHolidayConstraints(int idHolRemaining, int holDuration, int idDep, String roleName,String departmentName,
+			Date startDate, Date endDate);
 
 	void checkRequestForDecemberHoliday(String beginDate, String endDate) throws ParseException;
 }

@@ -28,16 +28,32 @@
 			</div>
 			<br>
 
-		    <form class="form-inline my-2 my-lg-0" method="GET" action="BookingRequestServlet">
-				<p>LastName: <input class="form-control mr-sm-2" type="text" name="lastNameFilter"></p>
-				<p>FirstName: <input class="form-control mr-sm-2" type="text" name="firstNameFilter"></p>
-				<p>Email: <input class="form-control mr-sm-2" type="text" name="emailFilter"></p>
-				<p>Role: <input class="form-control mr-sm-2" type="text" name="roleEmployeeFilter"></p>
-				<p>Department: <input class="form-control mr-sm-2" type="text" name="departmentEmployeeFilter"></p>
-		      	<button class="btn btn-outline-success mb-2" type="submit">Search</button>
-		    </form>
-	
-			<p>All your holidays request made.</p>
+			<%
+				if (isUserLogged == "admin") {
+			%>
+			    <form class="form-inline my-2 my-lg-0" method="GET" action="BookingRequestServlet">
+					<p>LastName: <input class="form-control mr-sm-2" type="text" name="lastNameFilter"></p>
+					<p>FirstName: <input class="form-control mr-sm-2" type="text" name="firstNameFilter"></p>
+					<p>Email: <input class="form-control mr-sm-2" type="text" name="emailFilter"></p>
+					<p>Role: <input class="form-control mr-sm-2" type="text" name="roleEmployeeFilter"></p>
+					<p>Department: <input class="form-control mr-sm-2" type="text" name="departmentEmployeeFilter"></p>
+			      	<button class="btn btn-outline-success mb-2" type="submit">Search</button>
+			    </form>
+			<%
+				}
+			%>
+
+			<%
+				if (isUserLogged == "admin") {
+			%>
+					<p>All the holidays request made.</p>
+			<%
+				} else if (isUserLogged == "standard-user") {
+			%>
+					<p>All your holidays request made.</p>					
+			<%
+				}
+			%>
 			<table class="table table-bordered table-striper table-hover">
 				<tr>
 					<th>Holiday Begin Date</th>
@@ -95,7 +111,17 @@
 			</table>
 			<br><br>
 
-			<p>All your holidays booking.</p>
+			<%
+				if (isUserLogged == "admin") {
+			%>
+					<p>All the holidays booking.</p>
+			<%
+				} else if (isUserLogged == "standard-user") {
+			%>
+					<p>All your holidays booking made.</p>
+			<%
+				}
+			%>
 			<table class="table table-bordered table-striper table-hover">
 				<tr>
 					<th>Booking Begin Date</th>

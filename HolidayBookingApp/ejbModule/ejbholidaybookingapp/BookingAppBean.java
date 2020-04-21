@@ -47,6 +47,24 @@ public class BookingAppBean implements BookingAppBeanRemote {
 	}
 
 	@Override
+	public List<HolidayBookingDTO> getHolidayBookingsByUserId(int userId) {
+		@SuppressWarnings("unchecked")
+		List<THolidayBooking> holidayBookings = entityManager
+				.createQuery("SELECT e FROM THolidayBooking e WHERE e.employee.id = :idUser")
+				.setParameter("idUser", userId).getResultList();
+		
+		List<HolidayBookingDTO> allHolidayBookingtDTO = new ArrayList<>();
+		for (THolidayBooking e : holidayBookings) {
+			allHolidayBookingtDTO.add(new HolidayBookingDTO(
+							e.getIdBooking(), e.getBookingBeginDate(), e.getBookingEndDate(),
+							e.getBookingDuration(), e.getEmployee().getId(),
+							e.getDepartment().getIdDep(), e.getHolidayRequest().getIdRequest()
+					));
+		}
+		return allHolidayBookingtDTO;
+	}
+
+	@Override
 	public boolean addHolidayBooking(HolidayBookingDTO holidayBooking) {
 		TEmployee employee = entityManager.find(TEmployee.class, holidayBooking.getIdEmp());
 		TDepartment department = entityManager.find(TDepartment.class, holidayBooking.getIdDep());

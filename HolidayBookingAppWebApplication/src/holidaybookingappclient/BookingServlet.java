@@ -36,22 +36,26 @@ public class BookingServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession(false);
 			String isUserValid = (String) session.getAttribute("username");
+			int userId = (int) session.getAttribute("userId");
+
 			if (isUserValid == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
-			} else if (isUserValid == "admin") {
-				response.sendRedirect("EmployeesServlet");
-			} else if (isUserValid == "standard-user") {
-				response.sendRedirect("BookingRequestServlet");
+			} else {
+				String method = request.getParameter("method");
+				if (method.equals("POST")) {
+					doPost(request, response);
+				} else {
+					if (isUserValid.equals("admin")) {
+						List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getAllHolidayBookings();
+						request.setAttribute("holidayBookings", holidayBookings);
+					} else if (isUserValid.equals("standard-user")) {
+						List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getHolidayBookingsByUserId(userId);
+						request.setAttribute("holidayBookings", holidayBookings);
+					}
+				}
 			}
 
-			String method = request.getParameter("method");
-			if (method.equals("POST")) {
-				doPost(request, response);
-			} else {
-				List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getAllHolidayBookings();
-				request.setAttribute("holidayBookings", holidayBookings);
-				request.getRequestDispatcher("/holidays.jsp").forward(request, response);
-			}
+			request.getRequestDispatcher("/holidays.jsp").forward(request, response);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

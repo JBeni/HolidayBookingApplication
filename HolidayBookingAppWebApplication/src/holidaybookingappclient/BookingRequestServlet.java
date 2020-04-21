@@ -37,6 +37,7 @@ public class BookingRequestServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession(false);
 			String isUserValid = (String) session.getAttribute("username");
+			int userId = (int) session.getAttribute("userId");
 			if (isUserValid == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
 			}
@@ -49,15 +50,24 @@ public class BookingRequestServlet extends HttpServlet {
 
 			List<HolidayRequestDTO> holidayRequests = new ArrayList<>();
 			if (lastNameFilter == null && firstNameFilter == null && emailFilter == null && roleFilter == null && departmentFilter == null) {
-				holidayRequests = bookingRequestAppBeanRemote.getAllHolidayRequests();
+				if (isUserValid.equals("admin")) {
+					holidayRequests = bookingRequestAppBeanRemote.getAllHolidayRequests();
+				} else if (isUserValid.equals("standard-user")) {
+					holidayRequests = bookingRequestAppBeanRemote.getHolidayRequestByUserId(userId);
+				}
 			} else {
 				holidayRequests = bookingRequestAppBeanRemote.filterHolidayReuqestByEmployee(lastNameFilter, firstNameFilter, emailFilter, roleFilter, departmentFilter);
 			}
 
-			List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getAllHolidayBookings();
-			request.setAttribute("holidayBookings", holidayBookings);
-			request.setAttribute("holidayRequests", holidayRequests);
+			if (isUserValid.equals("admin")) {
+				List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getAllHolidayBookings();
+				request.setAttribute("holidayBookings", holidayBookings);
+			} else if (isUserValid.equals("standard-user")) {
+				List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getHolidayBookingsByUserId(userId);
+				request.setAttribute("holidayBookings", holidayBookings);
+			}
 
+			request.setAttribute("holidayRequests", holidayRequests);
 			request.getRequestDispatcher("/holidays.jsp").forward(request, response);
 		} catch (Exception e) {
 			logger.error(e.getMessage());

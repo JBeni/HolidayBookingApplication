@@ -78,7 +78,11 @@
 			  </div>
 
 			  <div class="column">
-				  <p>asasa</p>
+				<div class="errorHolidayDaysRemaining"></div>
+				<div class="errorHeadOrDeputyHeadAvailable"></div>
+				<div class="errorManagerAvailable"></div>
+				<div class="errorSeniorMemberAvailable"></div>
+				<div class="errorDepartmentSizeAvailable"></div>
 			  </div>
 			</div>
 			<br>
