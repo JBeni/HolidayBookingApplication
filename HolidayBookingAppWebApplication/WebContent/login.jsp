@@ -45,15 +45,13 @@
 			}
 		%>
 
+		<!-- code taken from https://stackoverflow.com/questions/12381563/how-to-stop-browser-back-button-using-javascript -->
 		<script type="text/javascript">
-			<!-- code taken from https://stackoverflow.com/questions/12381563/how-to-stop-browser-back-button-using-javascript -->
-				history.pushState(null, document.title, location.href);
-				window.addEventListener('popstate', function (event)
-				{
-				  history.pushState(null, document.title, location.href);
-				});
-			<!-- area code taken -->
+			history.pushState(null, document.title, location.href);
+			window.addEventListener('popstate', function (event)
+			{
+			  history.pushState(null, document.title, location.href);
+			});
 		</script>
-
 	</body>
 </html>

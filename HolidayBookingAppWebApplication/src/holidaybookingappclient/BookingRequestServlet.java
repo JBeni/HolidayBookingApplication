@@ -13,15 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
-
 import ejbholidaybookingapp.BookingAppBeanRemote;
 import ejbholidaybookingapp.BookingRequestAppBeanRemote;
-import ejbholidaybookingutilsapp.HolidayUtilsClass;
-import entityclasses.EmployeeDTO;
 import entityclasses.HolidayBookingDTO;
 import entityclasses.HolidayRequestDTO;
-import entityclasses.PeakTimeDTO;
-import entityclasses.StatusDTO;
 
 @WebServlet("/BookingRequestServlet")
 public class BookingRequestServlet extends HttpServlet {
@@ -38,10 +33,13 @@ public class BookingRequestServlet extends HttpServlet {
         super();
     }
 
-	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session = request.getSession(false);
+			String isUserValid = (String) session.getAttribute("username");
+			if (isUserValid == null) {
+				response.sendRedirect("HolidaySystemAppServlet");
+			}
 
 			String lastNameFilter = request.getParameter("lastNameFilter");
 			String firstNameFilter = request.getParameter("firstNameFilter");
@@ -56,18 +54,6 @@ public class BookingRequestServlet extends HttpServlet {
 				holidayRequests = bookingRequestAppBeanRemote.filterHolidayReuqestByEmployee(lastNameFilter, firstNameFilter, emailFilter, roleFilter, departmentFilter);
 			}
 
-			List<EmployeeDTO> employeesAtWork = new ArrayList<>();
-			List<EmployeeDTO> employeesInHoliday = new ArrayList<>();
-
-			String datepickerFilter = request.getParameter("datepicker-filter-employees");
-			if (datepickerFilter != null) {
-				java.sql.Date dayFilter = HolidayUtilsClass.formatDateFromString(datepickerFilter);
-				employeesAtWork = bookingRequestAppBeanRemote.showEmployeesAtWork(dayFilter);
-				employeesInHoliday = bookingRequestAppBeanRemote.showEmployeesInHoliday(dayFilter);
-			}
-			request.setAttribute("employeesWorking", employeesAtWork);
-			request.setAttribute("employeesHoliday", employeesInHoliday);
-
 			List<HolidayBookingDTO> holidayBookings = bookingAppBeanRemote.getAllHolidayBookings();
 			request.setAttribute("holidayBookings", holidayBookings);
 			request.setAttribute("holidayRequests", holidayRequests);
@@ -80,19 +66,7 @@ public class BookingRequestServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			HttpSession session = request.getSession(false);
-
-			java.sql.Date startDate = HolidayUtilsClass.formatDateFromString(request.getParameter("startDate"));
-			java.sql.Date endDate = HolidayUtilsClass.formatDateFromString(request.getParameter("endDate"));
-			int holidayDuration = (int) HolidayUtilsClass.countWeekDaysMath(startDate, endDate);
-
-			int userId = Integer.parseInt(session.getAttribute("userId").toString());
-			PeakTimeDTO peakTime = bookingRequestAppBeanRemote.getTheNotPeakTime();
-			StatusDTO status = bookingRequestAppBeanRemote.getPendingStatus();
-
-			HolidayRequestDTO newHolidayRequest = new HolidayRequestDTO(0, startDate, endDate, holidayDuration, userId, peakTime.getIdPeakTime(), status.getIdStatus(), null);
-			bookingRequestAppBeanRemote.addHolidayRequest(newHolidayRequest);
-			response.sendRedirect("BookingRequestServlet");
+			doGet(request, response);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

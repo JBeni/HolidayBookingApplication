@@ -7,7 +7,9 @@
 <!DOCTYPE html>
 <html class="h-100">
 	<head>
+		<meta charset="ISO-8859-1">
 		<title>Edit Employee</title>
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<link href="css/styles.css" rel="stylesheet" type="text/css">
 

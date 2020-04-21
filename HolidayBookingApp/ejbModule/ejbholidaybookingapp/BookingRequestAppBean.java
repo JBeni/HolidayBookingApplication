@@ -159,7 +159,6 @@ public class BookingRequestAppBean implements BookingRequestAppBeanRemote {
 		List<THolidayBooking> employees = (List<THolidayBooking>) entityManager
 				.createQuery("SELECT e FROM THolidayBooking e WHERE :day >= e.bookingBeginDate and :day <= e.bookingEndDate")
 				.setParameter("day", day).getResultList();
-
 		List<EmployeeDTO> employeesDTO = new ArrayList<>();
 		for (THolidayBooking e : employees) {
 			employeesDTO.add(new EmployeeDTO(e.getEmployee().getId(), e.getEmployee().getLastName(), e.getEmployee().getFirstName(),
@@ -183,11 +182,11 @@ public class BookingRequestAppBean implements BookingRequestAppBeanRemote {
 		List<TEmployee> employeesAtWork = new ArrayList<>();
 		if (employeeInHolidayDTO.size() == 0) {
 			employeesAtWork = (List<TEmployee>) entityManager
-					.createQuery("SELECT e FROM TEmployee e").getResultList();			
+					.createQuery("SELECT e FROM TEmployee e WHERE e.isDeleted != 1").getResultList();
 		} else {
 			employeesAtWork = (List<TEmployee>) entityManager
-					.createQuery("SELECT e FROM TEmployee e WHERE e.id NOT IN :list")
-					.setParameter("list", employeeInHolidayDTO).getResultList();			
+					.createQuery("SELECT e FROM TEmployee e WHERE e.isDeleted != 1 and e.id NOT IN :list")
+					.setParameter("list", employeeInHolidayDTO).getResultList();
 		}
 		List<EmployeeDTO> employeesAtWorkDTO = new ArrayList<>();
 		for (TEmployee e : employeesAtWork) {

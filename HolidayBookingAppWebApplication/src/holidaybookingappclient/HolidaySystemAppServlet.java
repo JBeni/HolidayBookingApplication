@@ -38,6 +38,8 @@ public class HolidaySystemAppServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			HttpSession session = request.getSession(false);
+
 			int roleId = holidaySystemAppBean.login(request.getParameter("email"), request.getParameter("password"));
 			if (roleId == 0) {
 				logger.warn("User does not exist in the databasase. Email written: " + request.getParameter("email"));
@@ -48,12 +50,10 @@ public class HolidaySystemAppServlet extends HttpServlet {
 
 				// 1 for 'Head' and 2 for 'Deputy Head'
 				if (roleId == 1 || roleId == 2) {
-					HttpSession session = request.getSession(false);
 					session.setAttribute("username", "admin");
 					session.setAttribute("userId", user.getId());
 					response.sendRedirect("EmployeesServlet");
 				} else if (roleId != 0) {
-					HttpSession session = request.getSession(false);
 					session.setAttribute("username", "standard-user");
 					session.setAttribute("userId", user.getId());
 					response.sendRedirect("BookingRequestServlet");

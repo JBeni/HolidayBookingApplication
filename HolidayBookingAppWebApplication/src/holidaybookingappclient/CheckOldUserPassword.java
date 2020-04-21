@@ -29,6 +29,15 @@ public class CheckOldUserPassword extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session = request.getSession(false);
+			String isUserValid = (String) session.getAttribute("username");
+			if (isUserValid == null) {
+				response.sendRedirect("HolidaySystemAppServlet");
+			} else if (isUserValid == "admin") {
+				response.sendRedirect("EmployeesServlet");
+			} else if (isUserValid == "standard-user") {
+				response.sendRedirect("BookingRequestServlet");
+			}
+
 			int userId = (int) session.getAttribute("userId");
 			String oldPassword = request.getParameter("oldPassword");
 			boolean validPassword = employeeAppBean.checkUserPassword(userId, oldPassword);

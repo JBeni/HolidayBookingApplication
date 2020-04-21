@@ -22,7 +22,11 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			HttpSession session = request.getSession(false);
-	
+			String isUserValid = (String) session.getAttribute("username");
+			if (isUserValid == null) {
+				response.sendRedirect("HolidaySystemAppServlet");
+			}
+
 			session.removeAttribute("username");
 			session.removeAttribute("userId");
 			session.removeAttribute("isDeleted");

@@ -28,6 +28,12 @@ public class ChangePasswordServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			HttpSession session = request.getSession(false);
+			String isUserValid = (String) session.getAttribute("username");
+			if (isUserValid == null) {
+				response.sendRedirect("HolidaySystemAppServlet");
+			}
+
 			request.getRequestDispatcher("/changePassword.jsp").forward(request, response);
 		} catch (Exception e) {
 			logger.error(e.getMessage());

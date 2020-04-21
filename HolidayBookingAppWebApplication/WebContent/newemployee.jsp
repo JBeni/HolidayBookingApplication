@@ -35,9 +35,10 @@
 		<%@ include file="menu.jsp" %>
 
 		<%
-			String isLogin = (String) session.getAttribute("username");
-			if (isLogin != "admin") {
+			if (isUserLogged != "admin" && isUserLogged == null) {
 				response.sendRedirect("HolidaySystemAppServlet");
+			} else if (isUserLogged != "admin" && isUserLogged != null) {
+				response.sendRedirect("EmployeesServlet");
 			}
 		%>
 		<div class="row">

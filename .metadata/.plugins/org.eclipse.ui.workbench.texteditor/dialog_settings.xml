@@ -8,13 +8,14 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="isUserAdmin"/>
+			<item value="&quot;BookingRequestServlet&quot;"/>
 			<item value="debugg"/>
 			<item value="debugger"/>
 			<item value="id=&quot;lastName&quot;"/>
 			<item value=".disabled = false;"/>
 			<item value="HolidayBookingDTO"/>
 			<item value="QuartzTest"/>
-			<item value="isUserAdmin"/>
 			<item value="&#x09;&#x09;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap_3.7.css&quot;&gt;"/>
 			<item value="&#x09;&lt;!-- Change it --&gt;"/>
 			<item value="cadastrar.jsp"/>
@@ -22,7 +23,6 @@
 			<item value="getNameDep()"/>
 			<item value="                        &lt;driver-class&gt;com.mysql.cj.jdbc.Driver&lt;/driver-class&gt;"/>
 			<item value="DEP"/>
-			<item value="&#x09;&#x09;holidayBookingAppBean.editEmployee(updateEmp);"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
