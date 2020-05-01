@@ -13,6 +13,6 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/HolidayBookingApp"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Beni/Desktop/Eclipse Workspace/log4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Beni/Desktop/Eclipse Workspace/WWeb Packages Java/log4j.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

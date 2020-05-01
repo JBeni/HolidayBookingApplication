@@ -3,7 +3,7 @@
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Timer.java&quot; tooltip=&quot;WebJobScheduler/ejbModule/mastering/Timer.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/WebJobScheduler/ejbModule/mastering/Timer.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingRequestServlet.java&quot; tooltip=&quot;HolidayBookingAppWebApplication/src/holidaybookingappclient/BookingRequestServlet.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/src/holidaybookingappclient/BookingRequestServlet.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;log4j.properties&quot; tooltip=&quot;HolidayBookingAppWebApplication/resources/log4j.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/resources/log4j.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jst.jsp.core.jspsource.source&quot; name=&quot;holidays.jsp&quot; tooltip=&quot;HolidayBookingAppWebApplication/WebContent/holidays.jsp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/WebContent/holidays.jsp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingAppBean.java&quot; tooltip=&quot;HolidayBookingApp/ejbModule/ejbholidaybookingapp/BookingAppBean.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingApp/ejbModule/ejbholidaybookingapp/BookingAppBean.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingRequestAppBeanRemote.java&quot; tooltip=&quot;HolidayBookingAppClient/ejbModule/ejbholidaybookingapp/BookingRequestAppBeanRemote.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppClient/ejbModule/ejbholidaybookingapp/BookingRequestAppBeanRemote.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingRequestAppBean.java&quot; tooltip=&quot;HolidayBookingApp/ejbModule/ejbholidaybookingapp/BookingRequestAppBean.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingApp/ejbModule/ejbholidaybookingapp/BookingRequestAppBean.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingServlet.java&quot; tooltip=&quot;HolidayBookingAppWebApplication/src/holidaybookingappclient/BookingServlet.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/src/holidaybookingappclient/BookingServlet.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;HolidaySystemAppServlet.java&quot; tooltip=&quot;HolidayBookingAppWebApplication/src/holidaybookingappclient/HolidaySystemAppServlet.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/src/holidaybookingappclient/HolidaySystemAppServlet.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingAppBeanRemote.java&quot; tooltip=&quot;HolidayBookingAppClient/ejbModule/ejbholidaybookingapp/BookingAppBeanRemote.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppClient/ejbModule/ejbholidaybookingapp/BookingAppBeanRemote.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;THolidayBooking.java&quot; tooltip=&quot;HolidayBookingApp/ejbModule/model/THolidayBooking.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingApp/ejbModule/model/THolidayBooking.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jst.jsp.core.jspsource.source&quot; name=&quot;newholidayrequest.jsp&quot; tooltip=&quot;HolidayBookingAppWebApplication/WebContent/newholidayrequest.jsp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/WebContent/newholidayrequest.jsp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wst.jsdt.ui.CompilationUnitEditor&quot; name=&quot;validateAddEmployee.js&quot; tooltip=&quot;HolidayBookingAppWebApplication/WebContent/js/validateAddEmployee.js&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/WebContent/js/validateAddEmployee.js&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CheckingHolidayContraints.java&quot; tooltip=&quot;HolidayBookingAppWebApplication/src/holidaybookingappclient/CheckingHolidayContraints.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/src/holidaybookingappclient/CheckingHolidayContraints.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wst.jsdt.ui.CompilationUnitEditor&quot; name=&quot;holidayContraints.js&quot; tooltip=&quot;HolidayBookingAppWebApplication/WebContent/js/holidayContraints.js&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/WebContent/js/holidayContraints.js&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;THolidayRequest.java&quot; tooltip=&quot;HolidayBookingApp/ejbModule/model/THolidayRequest.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingApp/ejbModule/model/THolidayRequest.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CheckConstraintsAppBeanRemote.java&quot; tooltip=&quot;HolidayBookingAppClient/ejbModule/ejbholidaybookingapp/CheckConstraintsAppBeanRemote.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppClient/ejbModule/ejbholidaybookingapp/CheckConstraintsAppBeanRemote.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CheckConstraintsAppBean.java&quot; tooltip=&quot;HolidayBookingApp/ejbModule/ejbholidaybookingapp/CheckConstraintsAppBean.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingApp/ejbModule/ejbholidaybookingapp/CheckConstraintsAppBean.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;TDepartment.java&quot; tooltip=&quot;HolidayBookingApp/ejbModule/model/TDepartment.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingApp/ejbModule/model/TDepartment.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jst.jsp.core.jspsource.source&quot; name=&quot;login.jsp&quot; tooltip=&quot;HolidayBookingAppWebApplication/WebContent/login.jsp&quot;>&#xD;&#xA;&lt;persistable path=&quot;/HolidayBookingAppWebApplication/WebContent/login.jsp&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_K-LacH6MEeqvdJm7lTOoqQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_K-LacX6MEeqvdJm7lTOoqQ" label="%trimmedwindow.label.eclipseSDK" x="211" y="199" width="1295" height="1038">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_K-LacH6MEeqvdJm7lTOoqQ" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_K-LacX6MEeqvdJm7lTOoqQ" label="%trimmedwindow.label.eclipseSDK" x="269" y="87" width="1295" height="1038">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="isRestored" value="true"/>
@@ -11,7 +11,6 @@
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
     <persistedState key="aggregateWorkingSetId" value="Aggregate for window 1582398028514"/>
     <tags>topLevel</tags>
-    <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_K-LacX6MEeqvdJm7lTOoqQ" selectedElement="_K-Lacn6MEeqvdJm7lTOoqQ" horizontal="true">
       <children xsi:type="advanced:PerspectiveStack" xmi:id="_K-Lacn6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_K-Lajn6MEeqvdJm7lTOoqQ">
         <children xsi:type="advanced:Perspective" xmi:id="_K-Lac36MEeqvdJm7lTOoqQ" elementId="org.eclipse.jst.j2ee.J2EEPerspective" selectedElement="_K-LadH6MEeqvdJm7lTOoqQ" label="Java EE" iconURI="platform:/plugin/org.eclipse.jst.j2ee.ui/icons/full/cview16/j2ee_perspective.gif">
@@ -242,7 +241,7 @@
                 <tags>categoryTag:Java</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_K-Laln6MEeqvdJm7lTOoqQ" containerData="7602" selectedElement="_K-Lal36MEeqvdJm7lTOoqQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_K-Laln6MEeqvdJm7lTOoqQ" containerData="7602" selectedElement="_K-LaoX6MEeqvdJm7lTOoqQ">
               <children xsi:type="basic:PartSashContainer" xmi:id="_K-Lal36MEeqvdJm7lTOoqQ" containerData="6030" selectedElement="_K-LamH6MEeqvdJm7lTOoqQ" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_K-LamH6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.editorss" containerData="6500" ref="_K-MBl36MEeqvdJm7lTOoqQ"/>
                 <children xsi:type="basic:PartStack" xmi:id="_K-LamX6MEeqvdJm7lTOoqQ" elementId="org.eclipse.debug.internal.ui.OutlineFolderView" toBeRendered="false" containerData="3500">
@@ -280,6 +279,7 @@
               <children xsi:type="basic:PartStack" xmi:id="_K-LaoX6MEeqvdJm7lTOoqQ" elementId="org.eclipse.debug.internal.ui.ToolsFolderView" containerData="3970" selectedElement="_K-Laon6MEeqvdJm7lTOoqQ">
                 <tags>Data Management</tags>
                 <tags>Debug</tags>
+                <tags>active</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_K-Laon6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.console.ConsoleView" ref="_K-MB236MEeqvdJm7lTOoqQ" closeable="true">
                   <tags>View</tags>
                   <tags>categoryTag:General</tags>
@@ -377,30 +377,9 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_K-MBl36MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.editorss" selectedElement="_K-MBmH6MEeqvdJm7lTOoqQ">
-      <children xsi:type="basic:PartStack" xmi:id="_K-MBmH6MEeqvdJm7lTOoqQ" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_ov3TYIPjEeqEE6eNQzy7cg">
+      <children xsi:type="basic:PartStack" xmi:id="_K-MBmH6MEeqvdJm7lTOoqQ" elementId="org.eclipse.e4.primaryDataStack">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>active</tags>
-        <children xsi:type="basic:Part" xmi:id="_ov3TYIPjEeqEE6eNQzy7cg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="BookingRequestServlet.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BookingRequestServlet.java&quot; partName=&quot;BookingRequestServlet.java&quot; title=&quot;BookingRequestServlet.java&quot; tooltip=&quot;HolidayBookingAppWebApplication/src/holidaybookingappclient/BookingRequestServlet.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HolidayBookingAppWebApplication/src/holidaybookingappclient/BookingRequestServlet.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;29&quot; selectionOffset=&quot;3058&quot; selectionTopPixel=&quot;800&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_sh6BoIPjEeqEE6eNQzy7cg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Timer.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Timer.java&quot; partName=&quot;Timer.java&quot; title=&quot;Timer.java&quot; tooltip=&quot;WebJobScheduler/ejbModule/mastering/Timer.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/WebJobScheduler/ejbModule/mastering/Timer.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2837&quot; selectionTopPixel=&quot;1102&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_zI7Y8IPjEeqEE6eNQzy7cg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="log4j.properties" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/file_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot; name=&quot;log4j.properties&quot; partName=&quot;log4j.properties&quot; title=&quot;log4j.properties&quot; tooltip=&quot;HolidayBookingAppWebApplication/resources/log4j.properties&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HolidayBookingAppWebApplication/resources/log4j.properties&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;383&quot; selectionOffset=&quot;138&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>removeOnHide</tags>
-          <tags>org.eclipse.jdt.ui.PropertiesFileEditor</tags>
-        </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_K-MBqX6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.png" tooltip="" closeable="true">
@@ -517,6 +496,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_K-MB3H6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -710,7 +691,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K-MCEH6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_jtjQEIPjEeqEE6eNQzy7cg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_K-PH6X6MEeqvdJm7lTOoqQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="__5VH4Iu7EequA52Zf2IqlQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_K-PH6X6MEeqvdJm7lTOoqQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K-MCHX6MEeqvdJm7lTOoqQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -723,7 +704,7 @@
         <tags>toolbarSeparator</tags>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_K-MCJH6MEeqvdJm7lTOoqQ" elementId="additions" toBeRendered="false"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_K-MCX36MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
+      <children xsi:type="menu:ToolBar" xmi:id="_K-MCX36MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K-MCan6MEeqvdJm7lTOoqQ" elementId="org.eclipse.debug.ui.launchActionSet">
@@ -750,7 +731,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K-MCfX6MEeqvdJm7lTOoqQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_jtlFQIPjEeqEE6eNQzy7cg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_K-PHjH6MEeqvdJm7lTOoqQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="__5YLMIu7EequA52Zf2IqlQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_K-PHjH6MEeqvdJm7lTOoqQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_K-MCiH6MEeqvdJm7lTOoqQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
